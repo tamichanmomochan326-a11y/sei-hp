@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>整 totonou｜整体・鍼灸サロン</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --teal:#48B4E0;
+    --teal-deep:#2E8FB8;
+    --teal-soft:#E6F4FA;
+    --beige:#EFEAD8;
+    --beige-deep:#D9D2B7;
+    --warm:#FAF8F2;
+    --ink:#2A2A2A;
+    --ink-soft:#5C5C5C;
+    --line:#E5E5E0;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Noto Serif JP","Yu Mincho",serif;
+    color:var(--ink);
+    background:#fff;
+    line-height:1.9;
+    font-feature-settings:"palt";
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  .vert{writing-mode:vertical-rl;font-feature-settings:"vpal";letter-spacing:.15em}
+
+  /* ============ HEADER ============ */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    background:rgba(255,255,255,.96);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid transparent;
+    transition:border-color .3s;
+  }
+  header.scrolled{border-bottom-color:var(--line)}
+  .nav-inner{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 32px;gap:24px;
+  }
+  .brand{display:flex;align-items:center;gap:14px}
+  .brand img{width:72px;height:72px;object-fit:contain}
+  .brand-text{display:flex;flex-direction:column;line-height:1.2}
+  .brand-text .ja{font-size:13px;letter-spacing:.25em;color:var(--ink-soft);font-family:"Noto Sans JP",sans-serif}
+  .brand-text .bottom-row{display:flex;align-items:baseline;gap:8px}
+  .brand-text .kanji{font-family:"Noto Serif JP",serif;font-size:28px;font-weight:600;color:var(--ink);letter-spacing:.05em}
+  .brand-text .en{font-family:"Cormorant Garamond",serif;font-size:22px;letter-spacing:.18em;color:var(--ink)}
+  nav ul{display:flex;list-style:none;align-items:center;gap:36px}
+  nav a{font-size:14px;font-family:"Noto Serif JP",serif;color:var(--ink);position:relative;padding:6px 0}
+  nav a .caret{font-size:9px;margin-left:4px;color:var(--ink-soft)}
+  nav a:hover{color:var(--teal-deep)}
+  .header-right{display:flex;align-items:center;gap:20px}
+  .tel-head{display:flex;align-items:center;gap:6px;font-family:"Cormorant Garamond",serif}
+  .tel-head .num{font-size:22px;letter-spacing:.04em;color:var(--ink)}
+  .tel-head .note{font-size:11px;color:var(--ink-soft);font-family:"Noto Sans JP",sans-serif;letter-spacing:.05em}
+  .tel-head::before{content:"";width:1px;height:24px;background:var(--line);margin-right:14px}
+  .btn-book{
+    border:1px solid var(--ink);
+    padding:14px 22px;font-size:13px;letter-spacing:.2em;
+    font-family:"Noto Serif JP",serif;
+    transition:all .25s;
+    background:#fff;
+  }
+  .btn-book:hover{background:var(--ink);color:#fff}
+  .hamb{display:none;width:44px;height:44px;border:none;background:transparent;cursor:pointer;flex-direction:column;justify-content:center;align-items:center;gap:6px}
+  .hamb span{display:block;width:24px;height:1px;background:var(--ink);transition:.3s}
+
+  /* mobile nav */
+  .mobile-nav{
+    display:none;position:fixed;top:0;left:0;right:0;bottom:0;
+    background:rgba(255,255,255,.98);z-index:99;
+    flex-direction:column;align-items:center;justify-content:center;gap:40px;
+  }
+  .mobile-nav.open{display:flex}
+  .mobile-nav a{font-size:18px;letter-spacing:.2em;font-family:"Noto Serif JP",serif}
+  .mobile-nav .close-btn{
+    position:absolute;top:20px;right:24px;
+    background:transparent;border:none;font-size:28px;cursor:pointer;color:var(--ink);
+  }
+  .mobile-nav .tel-mob{
+    font-family:"Cormorant Garamond",serif;font-size:28px;letter-spacing:.04em;margin-top:8px;
+  }
+
+  /* ============ HERO SLIDESHOW ============ */
+  .hero{
+    position:relative;height:100vh;min-height:640px;
+    overflow:hidden;background:#fff;
+  }
+  .slides{position:absolute;inset:0}
+  .slide{
+    position:absolute;inset:0;
+    background-size:cover;background-position:center;
+    opacity:0;transition:opacity 1.6s ease;
+    transform:scale(1.05);
+  }
+  .slide.active{opacity:1;transform:scale(1);transition:opacity 1.6s ease, transform 8s ease}
+  .slide::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,255,255,.55) 0%,rgba(255,255,255,.05) 40%,rgba(255,255,255,0) 60%,rgba(255,255,255,.35) 100%)}
+
+  .slide.s1{background-image:url('image-1779934233633.jpg');background-color:#dfd6c0}
+  .slide.s2{background-image:url('image-1779934228345.jpg');background-color:#ebe5d4}
+  .slide.s3{background-image:url('image-1779934231618.jpg');background-color:#e3dcc8}
+  .slide.s4{background-image:url('image-1779934223142.jpg');background-color:#e8e2d0}
+  .slide.s5{background-image:url('image-1779934235594.jpg');background-color:#e6e0cf}
+
+  .hero-copy-left{
+    position:absolute;left:6%;top:50%;transform:translateY(-50%);
+    z-index:5;
+  }
+  .hero-copy-left .vert{
+    font-size:14px;color:var(--ink-soft);letter-spacing:.4em;
+    font-family:"Noto Serif JP",serif;
+  }
+  .hero-copy-right{
+    position:absolute;right:8%;top:50%;transform:translateY(-50%);
+    z-index:5;display:flex;gap:32px;align-items:flex-start;
+  }
+  .hero-copy-right .vert{
+    font-size:22px;color:var(--ink);letter-spacing:.25em;
+    font-weight:400;line-height:2.2;
+  }
+  .hero-copy-right .vert.lead{font-size:26px;font-weight:500}
+  .hero-brand{
+    position:absolute;left:6%;bottom:8%;z-index:5;
+    display:flex;align-items:center;gap:24px;
+  }
+  .hero-brand .logo-circle{width:130px;height:130px;display:flex;align-items:center;justify-content:center}
+  .hero-brand .logo-circle img{width:130px;height:130px;filter:none;object-fit:contain}
+  .hero-brand .name{display:flex;flex-direction:column}
+  .hero-brand .tag{font-size:18px;letter-spacing:.3em;color:var(--ink);font-family:"Noto Sans JP",sans-serif;margin-bottom:-20px;line-height:1}
+  .hero-brand .bottom-row{display:flex;align-items:baseline;gap:12px}
+  .hero-brand .ja-name{font-family:"Noto Serif JP",serif;font-size:78px;letter-spacing:.05em;color:var(--ink);font-weight:600}
+  .hero-brand .en-name{font-family:"Cormorant Garamond",serif;font-size:34px;letter-spacing:.2em;color:var(--ink)}
+
+  .slide-dots{
+    position:absolute;right:32px;bottom:32px;z-index:6;
+    display:flex;gap:10px;
+  }
+  .slide-dots button{
+    width:8px;height:8px;border-radius:50%;border:none;
+    background:rgba(0,0,0,.2);cursor:pointer;padding:0;
+    transition:.3s;
+  }
+  .slide-dots button.active{background:var(--teal);width:24px;border-radius:4px}
+
+  /* ============ SECTION COMMON ============ */
+  section{padding:120px 6%;position:relative}
+  .sec-head{text-align:center;margin-bottom:80px}
+  .sec-head .en{
+    font-family:"Cormorant Garamond",serif;
+    font-size:14px;letter-spacing:.4em;color:var(--teal);
+    display:block;margin-bottom:18px;font-weight:500;
+  }
+  .sec-head h2{
+    font-size:32px;letter-spacing:.15em;font-weight:500;
+    color:var(--ink);
+  }
+  .sec-head .icons{
+    display:flex;justify-content:center;gap:48px;margin-bottom:32px;
+  }
+
+  .ricon{
+    width:78px;height:78px;
+    border:1.5px solid var(--teal);
+    border-radius:18px 22px 16px 20px;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    color:var(--teal);background:#fff;
+    transition:.3s;
+  }
+  .ricon:hover{background:var(--teal-soft)}
+  .ricon svg{width:42px;height:42px;stroke:var(--teal);fill:none;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+
+  /* ============ CONCEPT ============ */
+  .intro{
+    display:grid;grid-template-columns:1fr 1.1fr;gap:80px;
+    align-items:center;max-width:1280px;margin:0 auto;
+  }
+  .intro-photo{
+    aspect-ratio:4/5;
+    background:url('concept.png') top center/cover no-repeat;
+    border-radius:4px;position:relative;
+  }
+  .intro-photo::before{content:none}
+  .intro-text h3{
+    font-size:30px;line-height:2;letter-spacing:.1em;
+    margin-bottom:32px;font-weight:500;
+    text-wrap:pretty;
+  }
+  .intro-text p{
+    font-size:15px;line-height:2.2;color:var(--ink-soft);
+    text-align:left;hanging-punctuation:first;
+  }
+  .intro-text .more{
+    display:inline-flex;align-items:center;gap:14px;
+    margin-top:40px;font-size:13px;letter-spacing:.3em;
+    border-bottom:1px solid var(--ink);padding-bottom:6px;
+  }
+  .intro-text .more::after{content:"→";color:var(--teal)}
+
+  /* ============ ABOUT TILES ============ */
+  .about{background:var(--warm);padding:140px 6%}
+  .about-grid{
+    display:grid;grid-template-columns:repeat(2,1fr);gap:40px;
+    max-width:1320px;margin:0 auto;
+  }
+  .about-tile{display:flex;flex-direction:column}
+  .about-tile .ph{aspect-ratio:16/10;position:relative;overflow:hidden}
+  .about-tile.a1 .ph{background:url('about-1.jpg') center/cover no-repeat}
+  .about-tile.a2 .ph{background:url('about-2.jpg') center/cover no-repeat}
+  .about-tile.a3 .ph{background:url('about-3-new.jpg') center/cover no-repeat}
+  .about-tile.a4 .ph{background:url('about-4-new.jpg') center/cover no-repeat}
+  .about-tile .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 30%,rgba(0,0,0,.35) 100%)}
+  .about-tile .label{position:absolute;left:32px;top:28px;color:#fff;font-size:22px;letter-spacing:.15em;font-weight:500;z-index:2;text-shadow:0 2px 8px rgba(0,0,0,.3)}
+  .about-tile.a2 .label,.about-tile.a3 .label{color:#1a1a1a;text-shadow:-1px -1px 0 #fff,1px -1px 0 #fff,-1px 1px 0 #fff,1px 1px 0 #fff,0 0 6px #fff}
+  .about-tile.a1 .label{text-shadow:-1px -1px 0 #000,1px -1px 0 #000,-1px 1px 0 #000,1px 1px 0 #000,0 2px 8px rgba(0,0,0,.4)}
+  .about-tile .desc{padding:24px 4px 0;font-size:13px;color:var(--ink-soft);line-height:1.9}
+
+  /* ============ CONCERN CARDS ============ */
+  .concern{background:#fff;padding:140px 6%}
+  .concern-grid{
+    display:grid;grid-template-columns:repeat(5,1fr);gap:24px;
+    max-width:1320px;margin:0 auto;
+  }
+  .ccard{
+    background:#fff;border:1px solid var(--line);
+    padding:36px 24px;text-align:center;
+    transition:.3s;cursor:pointer;
+  }
+  .ccard:hover{border-color:var(--teal);transform:translateY(-4px);box-shadow:0 12px 30px rgba(72,180,224,.08)}
+  .ccard .ricon{margin:0 auto 20px;width:64px;height:64px}
+  .ccard .ricon svg{width:34px;height:34px}
+  .ccard h4{font-size:16px;letter-spacing:.1em;margin-bottom:10px;font-weight:500}
+  .ccard p{font-size:12px;color:var(--ink-soft);line-height:1.8;letter-spacing:.05em}
+
+  /* ============ BEFORE & AFTER ============ */
+  .ba-section{background:var(--beige);padding:140px 6%}
+  .ba-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:64px}
+  .ba-card{background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.06);transition:transform .3s,box-shadow .3s;cursor:pointer}
+  .ba-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(72,180,224,.12)}
+  .ba-tag{font-size:13px;letter-spacing:.15em;color:var(--teal);font-family:"Noto Sans JP",sans-serif;padding:20px 20px 10px;font-weight:500}
+  .ba-photos{display:grid;grid-template-columns:1fr 1fr;gap:2px}
+  .ba-photo{aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-family:"Cormorant Garamond",serif;font-size:13px;letter-spacing:.2em;color:rgba(255,255,255,.8);position:relative;font-style:italic}
+  .ba-photo.before{background:linear-gradient(135deg,#c8c0ab,#a89e88)}
+  .ba-photo.after{background:linear-gradient(135deg,#7bbfd8,#48b4e0)}
+  .ba-photo span{position:absolute;bottom:10px;left:12px}
+  .ba-info{padding:16px 20px 20px}
+  .ba-title{font-size:15px;letter-spacing:.08em;color:var(--ink);margin-bottom:6px;font-weight:500}
+  .ba-meta{font-size:11px;color:var(--ink-soft);letter-spacing:.05em}
+  .ba-more-wrap{text-align:center;margin-top:56px}
+  .ba-more{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--teal);color:var(--teal);padding:14px 48px;font-size:13px;letter-spacing:.2em;font-family:"Noto Sans JP",sans-serif;transition:all .3s;border-radius:2px}
+  .ba-more:hover{background:var(--teal);color:#fff}
+  .ba-more::after{content:"→"}
+  @media(max-width:768px){.ba-grid{grid-template-columns:1fr;gap:24px}}
+
+  /* ============ MENU / PRICE ============ */
+  .menu{background:var(--warm);padding:140px 6%}
+  .menu-list{
+    max-width:980px;margin:0 auto;
+    display:flex;flex-direction:column;gap:0;
+  }
+  .menu-row{
+    display:grid;grid-template-columns:140px 1fr auto auto;gap:32px;
+    align-items:center;padding:32px 8px;
+    border-bottom:1px solid var(--line);
+  }
+  .menu-row:first-child{border-top:1px solid var(--line)}
+  .menu-row .num{
+    font-family:"Cormorant Garamond",serif;
+    font-size:13px;letter-spacing:.4em;color:var(--teal);
+  }
+  .menu-row h4{
+    font-size:20px;letter-spacing:.1em;font-weight:500;
+    margin-bottom:6px;
+  }
+  .menu-row p{font-size:13px;color:var(--ink-soft);line-height:1.7}
+  .menu-row .time{font-size:13px;color:var(--ink-soft);letter-spacing:.1em;font-family:"Noto Sans JP",sans-serif}
+  .menu-row .price{
+    font-family:"Cormorant Garamond",serif;
+    font-size:24px;letter-spacing:.05em;color:var(--ink);
+  }
+  .menu-row .price .yen{font-size:13px;margin-right:2px;font-family:"Noto Sans JP",sans-serif}
+  .menu-row .first-badge{
+    display:inline-block;background:var(--teal);color:#fff;
+    font-size:10px;padding:3px 10px;border-radius:2px;
+    letter-spacing:.2em;margin-left:10px;font-family:"Noto Sans JP",sans-serif;
+    vertical-align:middle;
+  }
+
+  /* ============ VOICE ============ */
+  .voice{padding:140px 6%}
+  .voice-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:32px;
+    max-width:1280px;margin:0 auto;
+  }
+  .vcard{
+    background:#fff;border:1px solid var(--line);
+    padding:40px 32px;position:relative;
+  }
+  .vcard::before{
+    content:"❝";font-family:"Cormorant Garamond",serif;
+    font-size:64px;color:var(--teal);
+    position:absolute;left:24px;top:8px;line-height:1;
+  }
+  .vcard .stars{color:var(--teal);font-size:13px;letter-spacing:.2em;margin-bottom:16px;margin-top:24px}
+  .vcard h4{font-size:16px;letter-spacing:.1em;font-weight:500;margin-bottom:14px;text-wrap:pretty}
+  .vcard p{font-size:13px;color:var(--ink-soft);line-height:1.9;text-wrap:pretty}
+  .vcard .who{
+    margin-top:24px;padding-top:20px;border-top:1px solid var(--line);
+    font-size:12px;color:var(--ink-soft);letter-spacing:.1em;
+  }
+
+  /* ============ THERAPIST ============ */
+  .therapist{background:var(--beige);padding:140px 6%}
+  .therapist-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;max-width:1100px;margin:0 auto}
+  .therapist-photo{position:relative}
+  .therapist-photo img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:top;display:block}
+  .therapist-photo .photo-placeholder{width:100%;aspect-ratio:3/4;background:linear-gradient(160deg,#d8d0bb,#c4b89a);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.4);font-family:"Cormorant Garamond",serif;letter-spacing:.3em;font-size:14px}
+  .therapist-photo::after{content:"";position:absolute;bottom:0;left:0;right:0;height:40%;background:linear-gradient(transparent,rgba(42,42,42,.18))}
+  .therapist-text .label-en{font-family:"Cormorant Garamond",serif;font-size:11px;letter-spacing:.4em;color:var(--teal);margin-bottom:20px;display:block}
+  .therapist-text .name-ja{font-size:42px;letter-spacing:.15em;color:var(--ink);font-weight:400;margin-bottom:8px;font-family:"Noto Serif JP",serif}
+  .therapist-text .name-en{font-family:"Cormorant Garamond",serif;font-size:16px;letter-spacing:.25em;color:var(--ink-soft);margin-bottom:40px;display:block;font-style:italic}
+  .therapist-text .bio{font-size:15px;line-height:2.2;color:var(--ink-soft);margin-bottom:40px}
+  .therapist-text .bio p+p{margin-top:18px}
+  .therapist-specs{border-top:1px solid var(--line);padding-top:32px;display:flex;flex-direction:column;gap:14px;margin-bottom:40px}
+  .therapist-spec{display:grid;grid-template-columns:100px 1fr;gap:16px;font-size:13px}
+  .therapist-spec .spec-key{font-family:"Cormorant Garamond",serif;font-style:italic;color:var(--teal);letter-spacing:.15em}
+  .therapist-spec .spec-val{color:var(--ink-soft);letter-spacing:.05em;line-height:1.8}
+  .therapist-btn{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--ink);color:var(--ink);padding:14px 40px;font-size:13px;letter-spacing:.2em;font-family:"Noto Sans JP",sans-serif;transition:all .3s}
+  .therapist-btn:hover{background:var(--ink);color:#fff}
+  .therapist-btn::after{content:"→"}
+  @media(max-width:900px){.therapist-inner{grid-template-columns:1fr;gap:48px}}
+
+  /* ============ INFO + SNS row ============ */
+  .info-sns{padding:120px 6%;background:#fff;position:relative}
+  .info-sns-inner{
+    display:grid;grid-template-columns:1.4fr 1fr;gap:80px;
+    max-width:1280px;margin:0 auto;
+  }
+  .info-block .label,
+  .sns-block .label{
+    font-family:"Cormorant Garamond",serif;
+    font-size:18px;letter-spacing:.4em;color:var(--ink);
+    margin-bottom:32px;font-weight:500;
+  }
+  .info-list{display:flex;flex-direction:column}
+  .info-row{
+    display:grid;grid-template-columns:120px 1fr;gap:24px;
+    padding:18px 0;border-bottom:1px solid var(--line);
+    align-items:center;
+  }
+  .info-row .date{
+    font-family:"Cormorant Garamond",serif;
+    color:var(--teal);font-size:14px;letter-spacing:.15em;
+  }
+  .info-row .title{font-size:14px;color:var(--ink);letter-spacing:.05em}
+  .sns-block{display:flex;flex-direction:column;gap:14px}
+  .sns-btn{
+    display:flex;align-items:center;justify-content:space-between;
+    border:1px solid var(--line);padding:18px 24px;
+    font-size:13px;letter-spacing:.2em;
+    transition:.25s;
+  }
+  .sns-btn:hover{border-color:var(--teal);background:var(--teal-soft)}
+  .sns-btn .l{display:flex;align-items:center;gap:14px;color:var(--ink)}
+  .sns-btn svg{width:20px;height:20px;stroke:var(--teal);fill:none;stroke-width:1.5}
+  .sns-btn .arrow{color:var(--ink-soft)}
+  .sns-vert{
+    position:absolute;right:3%;top:50%;transform:translateY(-50%);
+    color:var(--ink);font-size:13px;letter-spacing:.6em;line-height:2.2;
+  }
+
+  /* ============ ACCESS ============ */
+  .access{
+    display:grid;grid-template-columns:1.1fr 1fr;gap:0;
+    background:#fff;align-items:stretch;position:relative;
+  }
+  .access-map{
+    background:linear-gradient(135deg,#e8e8df 0%,#d4d4c8 100%);
+    min-height:540px;position:relative;
+  }
+  .access-map::before{
+    content:"MAP";position:absolute;inset:0;
+    display:flex;align-items:center;justify-content:center;
+    color:rgba(0,0,0,.15);font-family:"Cormorant Garamond",serif;
+    font-size:48px;letter-spacing:.3em;
+  }
+  .access-info{padding:100px 6% 100px 80px;position:relative}
+  .access-info .vert-label{
+    position:absolute;right:6%;top:100px;
+    color:var(--ink);font-size:13px;letter-spacing:.6em;
+  }
+  .access-info h3{font-size:22px;letter-spacing:.15em;font-weight:500;margin-bottom:32px}
+  .access-info dl{display:grid;grid-template-columns:80px 1fr;gap:20px 24px;font-size:13px;line-height:2}
+  .access-info dt{color:var(--ink-soft);letter-spacing:.1em}
+  .access-info dd{color:var(--ink)}
+  .access-info dd .marker{color:var(--teal);margin-right:6px;font-weight:700}
+
+  /* ============ CTA BAND ============ */
+  .cta-band{background:var(--beige);padding:80px 6%}
+  .cta-inner{
+    max-width:1100px;margin:0 auto;
+    display:grid;grid-template-columns:1fr 1.2fr;gap:60px;
+    align-items:center;
+  }
+  .cta-left h3{font-size:30px;letter-spacing:.1em;font-weight:500;margin-bottom:14px}
+  .cta-left p{font-size:13px;color:var(--ink-soft);line-height:2}
+  .cta-right{display:flex;flex-direction:column;gap:16px}
+  .cta-tel{
+    display:flex;align-items:baseline;gap:8px;
+    font-family:"Cormorant Garamond",serif;
+  }
+  .cta-tel .lab{font-size:16px;letter-spacing:.15em;color:var(--ink)}
+  .cta-tel .num{font-size:46px;letter-spacing:.02em;color:var(--ink);line-height:1}
+  .cta-hours{font-size:12px;color:var(--ink-soft);letter-spacing:.05em;line-height:1.9;font-family:"Noto Sans JP",sans-serif}
+  .cta-status{display:flex;align-items:center;gap:14px;margin-top:8px}
+  .cta-status .badge{background:#fff;border:1px solid var(--line);font-size:11px;padding:8px 14px;letter-spacing:.15em;color:var(--ink-soft)}
+  .cta-status .note{font-size:11px;color:var(--ink-soft);line-height:1.8}
+
+  /* ============ FOOTER ============ */
+  footer{background:#fff;padding:80px 6% 40px}
+  .foot-inner{
+    display:grid;grid-template-columns:1fr 2fr 1fr;gap:80px;
+    max-width:1280px;margin:0 auto;
+  }
+  .foot-brand{display:flex;flex-direction:column;align-items:flex-start;gap:14px}
+  .foot-brand .logo{
+    width:84px;height:84px;background:var(--teal);
+    border-radius:18px 22px 16px 20px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .foot-brand .logo img{width:54px;filter:brightness(0) invert(1)}
+  .foot-brand .vert{font-size:11px;letter-spacing:.5em;color:var(--ink-soft);margin-top:10px}
+  .foot-brand .name{font-size:24px;letter-spacing:.15em;font-weight:500}
+  .foot-cols{display:grid;grid-template-columns:repeat(2,1fr);gap:40px}
+  .foot-cols ul{list-style:none;display:flex;flex-direction:column;gap:14px}
+  .foot-cols a{font-size:13px;letter-spacing:.1em;color:var(--ink);display:flex;align-items:center;gap:8px}
+  .foot-cols a::before{content:"›";color:var(--teal)}
+  .foot-cols a:hover{color:var(--teal-deep)}
+  .foot-sns{display:flex;flex-direction:column;gap:14px}
+  .foot-sns .label{font-family:"Cormorant Garamond",serif;font-size:13px;letter-spacing:.4em;color:var(--ink-soft)}
+  .foot-sns .icons{display:flex;gap:14px}
+  .foot-sns .icons a{
+    width:36px;height:36px;border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;
+    transition:.25s;
+  }
+  .foot-sns .icons a:hover{border-color:var(--teal);background:var(--teal-soft)}
+  .foot-sns .icons svg{width:16px;height:16px;stroke:var(--ink);fill:none;stroke-width:1.5}
+  .copy{
+    text-align:center;margin-top:80px;padding-top:32px;
+    border-top:1px solid var(--line);
+    font-size:11px;color:var(--ink-soft);letter-spacing:.15em;
+    font-family:"Noto Sans JP",sans-serif;line-height:2;
+  }
+
+  /* ============ Responsive ============ */
+  @media (max-width:1100px){
+    .nav-inner nav,.nav-inner .tel-head{display:none}
+    .hamb{display:flex}
+    .intro{grid-template-columns:1fr;gap:48px}
+    .access{grid-template-columns:1fr}
+    .access-info{padding:60px 6%}
+    .info-sns-inner{grid-template-columns:1fr;gap:60px}
+    .cta-inner{grid-template-columns:1fr;gap:32px}
+    .foot-inner{grid-template-columns:1fr;gap:48px}
+    .voice-grid{grid-template-columns:1fr}
+    .about-grid{grid-template-columns:1fr}
+    .hero-copy-right .vert{font-size:18px}
+    .hero-copy-right .vert.lead{font-size:21px}
+    .menu-row{grid-template-columns:1fr;gap:8px;padding:24px 0}
+    .menu-row .num{font-size:11px}
+    .hero-brand .ja-name{font-size:28px}
+    .hero-brand .logo-circle{width:96px;height:96px}
+    .hero-brand .logo-circle img{width:64px;height:64px}
+    section{padding:80px 6%}
+    .sec-head h2{font-size:24px}
+    .concern-grid{grid-template-columns:repeat(2,1fr)}
+    .hero-copy-left{display:none}
+  }
+  @media (max-width:600px){
+    .concern-grid{grid-template-columns:1fr}
+    .hero-copy-right{right:5%;gap:16px}
+    .hero-copy-right .vert{font-size:16px}
+    .hero-copy-right .vert.lead{font-size:18px}
+    .foot-cols{grid-template-columns:1fr}
+  }
+
+  /* fade in */
+  .fade{opacity:0;transform:translateY(20px);transition:opacity 1s ease,transform 1s ease}
+  .fade.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<header id="header">
+  <div class="nav-inner">
+    <a href="#" class="brand">
+      <img src="logo-new.png" alt="整 totonou">
+      <div class="brand-text">
+        <span class="ja">整体サロン</span>
+        <div class="bottom-row">
+          <span class="kanji">整</span>
+          <span class="en">totonou</span>
+        </div>
+      </div>
+    </a>
+    <nav>
+      <ul>
+        <li><a href="#concept">はじめての方へ<span class="caret">▾</span></a></li>
+        <li><a href="#about">整について<span class="caret">▾</span></a></li>
+        <li><a href="#menu">施術内容・料金</a></li>
+        <li><a href="#voice">よくあるご質問</a></li>
+      </ul>
+    </nav>
+    <div class="header-right">
+      <div class="tel-head">
+        <span class="num">070-9111-8430</span>
+        <span class="note">（予約優先）</span>
+      </div>
+      <a href="#access" class="btn-book">アクセス・ご予約</a>
+    </div>
+    <button class="hamb" aria-label="menu" id="hambBtn">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile nav overlay -->
+<div class="mobile-nav" id="mobileNav">
+  <button class="close-btn" id="closeNav">✕</button>
+  <a href="#concept" class="mob-link">はじめての方へ</a>
+  <a href="#about" class="mob-link">整について</a>
+  <a href="#menu" class="mob-link">施術内容・料金</a>
+  <a href="#voice" class="mob-link">よくあるご質問</a>
+  <a href="#access" class="mob-link">アクセス・ご予約</a>
+  <div class="tel-mob">03-1234-5678</div>
+</div>
+
+<!-- ============ HERO ============ -->
+<section class="hero" style="padding:0">
+  <div class="slides">
+    <div class="slide s1 active"></div>
+    <div class="slide s2"></div>
+    <div class="slide s3"></div>
+    <div class="slide s4"></div>
+    <div class="slide s5"></div>
+  </div>
+
+  <div class="hero-copy-left">
+    <div class="vert">そんな想いから生まれた<br>整える・寄り添う整体サロンです。</div>
+  </div>
+
+  <div class="hero-copy-right">
+    <div class="vert lead">本来の身体のリズムを<br>取り戻す為のお手伝いを</div>
+    <div class="vert">一人でも多くの方に<br>知っていただきたい</div>
+  </div>
+
+  <div class="hero-brand">
+    <div class="logo-circle"><img src="logo-new.png" alt=""></div>
+    <div class="name">
+      <span class="tag">整体サロン</span>
+      <div class="bottom-row">
+        <span class="ja-name">整</span>
+        <span class="en-name">totonou</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-dots">
+    <button class="active" data-i="0"></button>
+    <button data-i="1"></button>
+    <button data-i="2"></button>
+    <button data-i="3"></button>
+    <button data-i="4"></button>
+  </div>
+</section>
+
+<!-- ============ CONCEPT ============ -->
+<section id="concept">
+  <div class="sec-head fade">
+    <span class="en">CONCEPT</span>
+    <h2>整える、寄り添う、サポートする。</h2>
+  </div>
+  <div class="intro fade">
+    <div class="intro-photo"></div>
+    <div class="intro-text">
+      <h3>日々の小さな不調を、<br>そのままにしないで。</h3>
+      <p>「整 totonou」は、肩こり・腰痛・歪み・冷え・自律神経の乱れなど、<br>毎日のなかで知らず知らずに溜まっていく不調を、やさしくほどいていく整体サロンです。</p>
+      <p style="margin-top:24px">お一人おひとりの身体の状態や生活リズムに寄り添いながら、<br>本来備わっている回復する力を引き出せるようサポートいたします。</p>
+      <p style="margin-top:24px">施術者が、丁寧なカウンセリングをもとに最適な施術プランをご提案。<br>「整える」を合言葉に、ほっと力を抜けるような空間づくりを心がけています。</p>
+      <a href="#about" class="more">VIEW MORE</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT TILES ============ -->
+<section class="about" id="about">
+  <div class="sec-head fade">
+    <div class="icons">
+      <img src="icons-about.png" alt="骨・関節・筋肉・神経" style="height:78px;width:auto">
+    </div>
+    <span class="en">ABOUT US</span>
+    <h2>当院ができること</h2>
+  </div>
+  <div class="about-grid fade">
+    <div class="about-tile a1">
+      <div class="ph"><span class="label">カウンセリング</span></div>
+      <p class="desc">お客様のお身体のお悩みを丁寧にカウンセリングし、お客様に合った方針をご提案いたします。初回はカウンセリング＆施術で初回お試し価格にてご案内しておりますので、整体が初めての方もお気軽にご相談ください。</p>
+    </div>
+    <div class="about-tile a2">
+      <div class="ph"><span class="label">身体のおはなし</span></div>
+      <p class="desc">日々の物理的な負荷や精神的なストレスが、身体にどのような影響をもたらしているのか。現状を丁寧にリサーチし、一人ひとりに合ったアプローチをご提案します。ココロとカラダの深いつながりを、わかりやすくお伝えします。</p>
+    </div>
+    <div class="about-tile a3">
+      <div class="ph"><span class="label">セルフケア指導</span></div>
+      <p class="desc">ご通院いただいている方限定で、ご自宅で続けられるセルフケアの方法をお伝えしております。しっかりと指導いたしますので、ご安心ください。元気で快適な日常を取り戻しましょう！</p>
+    </div>
+    <div class="about-tile a4">
+      <div class="ph"><span class="label">体質改善指導</span></div>
+      <p class="desc">数値が下がらない。むくみが取れない。毎年、花粉に負ける。それは、体が「助けて」と伝えているサインかもしれません。血糖値・血圧・コレステロール・体重・便秘・むくみ・肌荒れ——病院や薬だけでは届かない「根っこ」に、整のメソッドは働きかけます。体を、外から整えるのではなく、内側から変えていく。それが、整独自の体質改善指導です。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONCERN ============ -->
+<section class="concern">
+  <div class="sec-head fade">
+    <span class="en">YOUR CONCERN</span>
+    <h2>こんなお悩みはありませんか</h2>
+  </div>
+  <div class="concern-grid fade">
+    <div class="ccard">
+      <div class="ricon" style="border:none;width:78px;height:78px"><img src="icon-shoulder.png" style="width:78px;height:78px;object-fit:contain"></div>
+      <h4>肩こり・首こり</h4>
+      <p>デスクワークで張る肩を、体全体のバランスから整える</p>
+    </div>
+    <div class="ccard">
+      <div class="ricon" style="border:none;width:78px;height:78px"><img src="icon-back.png" style="width:78px;height:78px;object-fit:contain"></div>
+      <h4>腰の張り・腰痛</h4>
+      <p>ぎっくり腰の予防、慢性的な腰の重だるさへ</p>
+    </div>
+    <div class="ccard">
+      <div class="ricon" style="border:none;width:78px;height:78px"><img src="icon-cold.png" style="width:78px;height:78px;object-fit:contain"></div>
+      <h4>冷え・むくみ</h4>
+      <p>体を芯から温めて、巡りを整えるサポート</p>
+    </div>
+    <div class="ccard">
+      <div class="ricon" style="border:none;width:78px;height:78px"><img src="icon-nerve.png" style="width:78px;height:78px;object-fit:contain"></div>
+      <h4>自律神経の乱れ</h4>
+      <p>眠りが浅い、疲れが抜けない方へ</p>
+    </div>
+    <div class="ccard">
+      <div class="ricon" style="border:none;width:78px;height:78px"><img src="icon-price.png" style="width:78px;height:78px;object-fit:contain"></div>
+      <h4>料金について</h4>
+      <p>初回限定のお得なメニューもご用意</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BEFORE & AFTER ============ -->
+<section class="ba-section">
+  <div class="sec-head fade">
+    <span class="en">BEFORE &amp; AFTER</span>
+    <h2>お客様の変化</h2>
+  </div>
+  <div class="ba-grid fade">
+    <div class="ba-card">
+      <p class="ba-tag">肩こり・首こり</p>
+      <div class="ba-photos">
+        <div class="ba-photo before"><span>Before</span></div>
+        <div class="ba-photo after"><span>After</span></div>
+      </div>
+      <div class="ba-info">
+        <p class="ba-title">肩・首の慢性的なこりが改善</p>
+        <p class="ba-meta">30代女性 ／ 施術回数：5回</p>
+      </div>
+    </div>
+    <div class="ba-card">
+      <p class="ba-tag">腰痛・骨盤の歪み</p>
+      <div class="ba-photos">
+        <div class="ba-photo before"><span>Before</span></div>
+        <div class="ba-photo after"><span>After</span></div>
+      </div>
+      <div class="ba-info">
+        <p class="ba-title">産後の腰痛と骨盤の歪みが解消</p>
+        <p class="ba-meta">40代女性 ／ 施術回数：8回</p>
+      </div>
+    </div>
+    <div class="ba-card">
+      <p class="ba-tag">自律神経の乱れ</p>
+      <div class="ba-photos">
+        <div class="ba-photo before"><span>Before</span></div>
+        <div class="ba-photo after"><span>After</span></div>
+      </div>
+      <div class="ba-info">
+        <p class="ba-title">眠れない・疲れが取れないが改善</p>
+        <p class="ba-meta">30代女性 ／ 施術回数：6回</p>
+      </div>
+    </div>
+  </div>
+  <div class="ba-more-wrap fade">
+    <a href="#" class="ba-more">症例をもっと見る</a>
+  </div>
+</section>
+
+<!-- ============ MENU ============ -->
+<section class="menu" id="menu">
+  <div class="sec-head fade">
+    <span class="en">MENU &amp; PRICE</span>
+    <h2>施術内容・料金</h2>
+  </div>
+  <div class="menu-list fade">
+    <div class="menu-row">
+      <span class="num">No.01</span>
+      <div>
+        <h4>整体コース<span class="first-badge">初回限定</span></h4>
+        <p>骨格・筋肉のバランスを整える基本コース</p>
+      </div>
+      <span class="time">60分</span>
+      <span class="price"><span class="yen">¥</span>5,500</span>
+    </div>
+    <div class="menu-row">
+      <span class="num">No.02</span>
+      <div>
+        <h4>鍼灸コース</h4>
+        <p>お一人おひとりの不調に合わせた鍼とお灸の施術</p>
+      </div>
+      <span class="time">60分</span>
+      <span class="price"><span class="yen">¥</span>6,600</span>
+    </div>
+    <div class="menu-row">
+      <span class="num">No.03</span>
+      <div>
+        <h4>整体＋鍼灸 おすすめコース</h4>
+        <p>当院いちおし。深部から整えるトータルケア</p>
+      </div>
+      <span class="time">90分</span>
+      <span class="price"><span class="yen">¥</span>9,900</span>
+    </div>
+    <div class="menu-row">
+      <span class="num">No.04</span>
+      <div>
+        <h4>美容鍼コース</h4>
+        <p>表情筋にやさしくアプローチ、お顔のリフトアップに</p>
+      </div>
+      <span class="time">75分</span>
+      <span class="price"><span class="yen">¥</span>8,800</span>
+    </div>
+    <div class="menu-row">
+      <span class="num">No.05</span>
+      <div>
+        <h4>マタニティ整体</h4>
+        <p>妊娠中のお身体の不調にやさしく寄り添うコース</p>
+      </div>
+      <span class="time">45分</span>
+      <span class="price"><span class="yen">¥</span>5,500</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VOICE ============ -->
+<section class="voice" id="voice">
+  <div class="sec-head fade">
+    <span class="en">VOICE</span>
+    <h2>お客様の声</h2>
+  </div>
+  <div class="voice-grid fade">
+    <div class="vcard">
+      <div class="stars">★★★★★</div>
+      <h4>長年の肩こりが軽くなりました</h4>
+      <p>毎日デスクワークで肩のこりに悩んでいましたが、整体と鍼灸を組み合わせた施術で、体が軽くなった気がします。先生のお話もわかりやすく、安心して通えています。</p>
+      <div class="who">40代女性 / 会社員</div>
+    </div>
+    <div class="vcard">
+      <div class="stars">★★★★★</div>
+      <h4>静かな空間で心まで整いました</h4>
+      <p>施術を受けながら、自分の体と向き合う時間になりました。施術後はぐっすり眠れて、翌朝の目覚めが違います。落ち着いた院内も心地よかったです。</p>
+      <div class="who">30代女性 / 自営業</div>
+    </div>
+    <div class="vcard">
+      <div class="stars">★★★★★</div>
+      <h4>季節ごとに通いたくなる場所</h4>
+      <p>季節の変わり目に体調を崩しやすい体質ですが、こちらに通うようになってから、体の変化に気づけるようになりました。セルフケアのアドバイスもありがたいです。</p>
+      <div class="who">50代女性 / 主婦</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THERAPIST ============ -->
+<section class="therapist" id="therapist">
+  <div class="therapist-inner fade">
+    <div class="therapist-photo">
+      <div class="photo-placeholder">therapist photo</div>
+    </div>
+    <div class="therapist-text">
+      <span class="label-en">OWNER &amp; THERAPIST</span>
+      <h2 class="name-ja">施術者名</h2>
+      <span class="name-en">Therapist Name</span>
+      <div class="bio">
+        <p>身体の不調は、心の余裕にもつながっています。</p>
+        <p>毎日のちょっとした疲れや、長年の癖になった歪みを丁寧にほぐしていくことで、本来の自分らしさを取り戻すお手伝いができればと思っています。</p>
+        <p>一人ひとりの身体に向き合い、誠実にサポートしてまいります。</p>
+      </div>
+      <div class="therapist-specs">
+        <div class="therapist-spec">
+          <span class="spec-key">Certified</span>
+          <span class="spec-val">資格・認定情報</span>
+        </div>
+        <div class="therapist-spec">
+          <span class="spec-key">Career</span>
+          <span class="spec-val">施術歴・経歴</span>
+        </div>
+        <div class="therapist-spec">
+          <span class="spec-key">Message</span>
+          <span class="spec-val">お客様へのメッセージ</span>
+        </div>
+      </div>
+      <a href="#" class="therapist-btn">詳しいプロフィール</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INFO + SNS ============ -->
+<section class="info-sns">
+  <div class="info-sns-inner fade">
+    <div class="info-block">
+      <div class="label">INFORMATION</div>
+      <div class="info-list">
+        <div class="info-row"><span class="date">2026.04.29</span><span class="title">整体・鍼灸の組み合わせコースについて</span></div>
+        <div class="info-row"><span class="date">2026.04.28</span><span class="title">5月のセルフケア教室のご案内</span></div>
+        <div class="info-row"><span class="date">2026.04.26</span><span class="title">運動前後におすすめの整え方</span></div>
+        <div class="info-row"><span class="date">2026.04.15</span><span class="title">LINEでのご予約・変更受付を開始いたします</span></div>
+        <div class="info-row"><span class="date">2026.04.12</span><span class="title">施術者は、自分の体も整えるのか？</span></div>
+      </div>
+    </div>
+    <div class="sns-block">
+      <div class="label">OFFICIAL SNS</div>
+      <a href="#" class="sns-btn">
+        <span class="l"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="14" rx="1"/><path d="M8 9h8 M8 12h8 M8 15h5"/></svg>OFFICIAL BLOG</span>
+        <span class="arrow">→</span>
+      </a>
+      <a href="#" class="sns-btn">
+        <span class="l"><svg viewBox="0 0 24 24"><path d="M14 7h2 V4 h-3 c-2 0-4 1.5-4 4 v3 H7 v3 h2 v7 h3 v-7 h2.5 l.5-3 H12 V8 c0-.5.5-1 1-1z"/></svg>OFFICIAL FACEBOOK</span>
+        <span class="arrow">→</span>
+      </a>
+      <a href="#" class="sns-btn">
+        <span class="l"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="4"/><circle cx="12" cy="12" r="3.5"/><circle cx="17" cy="7" r=".8" fill="currentColor" stroke="none"/></svg>OFFICIAL INSTAGRAM</span>
+        <span class="arrow">→</span>
+      </a>
+    </div>
+  </div>
+  <div class="sns-vert vert">ご予約、無料カウンセリング、整体教室など、お気軽にご相談ください。</div>
+</section>
+
+<!-- ============ ACCESS ============ -->
+<section class="access" id="access" style="padding:0">
+  <div class="access-map"></div>
+  <div class="access-info">
+    <div class="vert-label vert">アクセス</div>
+    <h3>整体・鍼灸サロン　整 totonou（ととのう）</h3>
+    <dl>
+      <dt>診療時間</dt>
+      <dd>平日 10:00〜20:00（最終受付19:00）<br>土曜 10:00〜18:00（最終受付17:00）<br>日・祝休</dd>
+      <dt>住所</dt>
+      <dd>〒150-0000 東京都渋谷区○○町1-2-3 ○○ビル 1F</dd>
+      <dt>アクセス</dt>
+      <dd>
+        <span class="marker">●</span>電車でお越しの方<br>
+        ○○線「○○駅」西口より徒歩5分<br>
+        <span class="marker">●</span>お車でお越しの方<br>
+        近隣にコインパーキングあり。完全予約制となっておりますので、お電話にてお問い合わせください。
+      </dd>
+    </dl>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="cta-band" style="padding:80px 6%">
+  <div class="cta-inner">
+    <div class="cta-left">
+      <h3>ご予約はこちらから</h3>
+      <p>ご予約、整体教室、無料カウンセリングなど、<br>お気軽にお電話ください。</p>
+    </div>
+    <div class="cta-right">
+      <div class="cta-tel">
+        <span class="lab">TEL.</span>
+        <span class="num">03-1234-5678</span>
+      </div>
+      <div class="cta-hours">電話受付　平日 10:00〜20:00　土曜 10:00〜18:00（日・祝休）</div>
+      <div class="cta-status">
+        <span class="badge">営業時間内</span>
+        <span class="note">※予約の方が優先となります。<br>※臨時休診の情報は<u>こちら</u>をご確認ください。</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="foot-inner">
+    <div class="foot-brand">
+      <div class="logo"><img src="logo.png" alt=""></div>
+      <div class="vert" style="margin-top:8px">整体・鍼灸サロン</div>
+      <div class="name">整 <span style="font-family:'Cormorant Garamond',serif;letter-spacing:.2em;color:var(--ink-soft)">totonou</span></div>
+    </div>
+    <div class="foot-cols">
+      <ul>
+        <li><a href="#concept">はじめての方へ</a></li>
+        <li><a href="#about">当院のご紹介</a></li>
+        <li><a href="#about">スタッフご挨拶</a></li>
+        <li><a href="#about">整体教室 〜整う時間〜</a></li>
+        <li><a href="#concept">無料カウンセリング</a></li>
+      </ul>
+      <ul>
+        <li><a href="#menu">施術内容・料金</a></li>
+        <li><a href="#voice">よくあるご質問</a></li>
+        <li><a href="#access">アクセス・ご予約</a></li>
+        <li><a href="#about">整体について</a></li>
+        <li><a href="#concept">妊娠中の方へ</a></li>
+      </ul>
+    </div>
+    <div class="foot-sns">
+      <span class="label">OFFICIAL SNS</span>
+      <div class="icons">
+        <a href="#" aria-label="blog"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="14" rx="1"/><path d="M8 9h8 M8 12h8 M8 15h5"/></svg></a>
+        <a href="#" aria-label="facebook"><svg viewBox="0 0 24 24"><path d="M14 7h2 V4 h-3 c-2 0-4 1.5-4 4 v3 H7 v3 h2 v7 h3 v-7 h2.5 l.5-3 H12 V8 c0-.5.5-1 1-1z"/></svg></a>
+        <a href="#" aria-label="instagram"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="4"/><circle cx="12" cy="12" r="3.5"/></svg></a>
+      </div>
+    </div>
+  </div>
+  <div class="copy">
+    東京都渋谷区 整体・鍼灸サロン「整 totonou」<br>
+    Copyright &copy; 2026 totonou ALL Rights Reserved.
+  </div>
+</footer>
+
+<script>
+  // header scrolled state
+  const header=document.getElementById('header');
+  window.addEventListener('scroll',()=>{
+    header.classList.toggle('scrolled',window.scrollY>20);
+  });
+
+  // hamburger menu
+  const hambBtn=document.getElementById('hambBtn');
+  const mobileNav=document.getElementById('mobileNav');
+  const closeNav=document.getElementById('closeNav');
+  hambBtn.addEventListener('click',()=>mobileNav.classList.add('open'));
+  closeNav.addEventListener('click',()=>mobileNav.classList.remove('open'));
+  document.querySelectorAll('.mob-link').forEach(a=>{
+    a.addEventListener('click',()=>mobileNav.classList.remove('open'));
+  });
+
+  // hero slideshow
+  const slides=document.querySelectorAll('.slide');
+  const dots=document.querySelectorAll('.slide-dots button');
+  let idx=0;
+  function go(i){
+    slides.forEach((s,k)=>s.classList.toggle('active',k===i));
+    dots.forEach((d,k)=>d.classList.toggle('active',k===i));
+    idx=i;
+  }
+  dots.forEach(d=>d.addEventListener('click',()=>go(+d.dataset.i)));
+  setInterval(()=>go((idx+1)%slides.length),5500);
+
+  // fade in on scroll
+  const io=new IntersectionObserver(es=>{
+    es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
+  },{threshold:.15});
+  document.querySelectorAll('.fade').forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
