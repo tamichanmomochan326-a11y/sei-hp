@@ -6,6 +6,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 整体サロン「整 totonou」のホームページ。スタンドアロンHTML形式 — `index.html` 1ファイル（約980行）にHTML/CSS/JSがすべて収まっている。サーバー不要、ブラウザで直接開いて確認。
 
+## ⚠️ セッション開始時に必ず伝えること
+
+**新しいセッションが始まったら、最初にユーザーへ以下を伝える：**
+
+> 「このセッションの変更は `claude/（ブランチ名）` というブランチに保存されます。作業完了後にGitHub Desktopで反映するには、**ブランチを切り替えてからFetch/Pull**してください。または、作業終了時にmainへマージします。どちらがよいか教えてください。」
+
 ## 確認方法
 
 `index.html` をブラウザで開く。編集後は **Cmd+Shift+R**（強制リロード）で画像キャッシュをクリア。
