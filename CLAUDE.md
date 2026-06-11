@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## プロジェクト概要
 
-整体サロン「整 totonou」のホームページ。スタンドアロンHTML形式 — `index.html` 1ファイルにHTML/CSS/JSがすべて収まっている。サーバー不要、ブラウザで直接開いて確認。
+整体サロン「整 totonou」のホームページ。スタンドアロンHTML形式 — `index.html` 1ファイル（約980行）にHTML/CSS/JSがすべて収まっている。サーバー不要、ブラウザで直接開いて確認。
 
 ## 確認方法
 
@@ -28,6 +28,29 @@ git commit --no-gpg-sign -m "メッセージ"
 </div>
 ```
 `border:none` 必須（画像自体の枠とCSSの枠が二重になるのを防ぐため）
+
+## 画像ファイル一覧
+
+| ファイル名 | 用途 |
+|---|---|
+| `logo-new.png` | ヘッダーロゴ・ヒーロー左下ロゴ（72px / 130px） |
+| `logo.png` | フッターロゴ |
+| `image-1779934233633.jpg` | スライドショー1枚目 |
+| `image-1779934228345.jpg` | スライドショー2枚目 |
+| `image-1779934231618.jpg` | スライドショー3枚目 |
+| `image-1779934223142.jpg` | スライドショー4枚目 |
+| `image-1779934235594.jpg` | スライドショー5枚目 |
+| `concept.png` | CONCEPTセクション写真 |
+| `about-1.jpg` | 当院ができること：カウンセリング（左上） |
+| `about-2.jpg` | 当院ができること：体のおはなし（右上） |
+| `about-3.jpg` / `about-3-new.jpg` | 当院ができること：セルフケア指導（左下） |
+| `about-4.jpg` / `about-4-new.jpg` | 当院ができること：体質改善指導（右下） |
+| `icons-about.png` | 当院ができることセクションのアイコン（骨・関節・筋肉・神経） |
+| `icon-shoulder.png` | お悩みカード：肩こり・首こり |
+| `icon-back.png` | お悩みカード：腰の張り・腰痛 |
+| `icon-cold.png` | お悩みカード：冷え・むくみ |
+| `icon-nerve.png` | お悩みカード：自律神経の乱れ |
+| `icon-price.png` | お悩みカード：料金について |
 
 ## デザイントークン
 
@@ -60,12 +83,51 @@ git commit --no-gpg-sign -m "メッセージ"
 12. CTA（予約バナー）
 13. FOOTER
 
+## ヘッダーブランドロゴ構成
+
+```html
+<a href="#" class="brand">
+  <img src="logo-new.png">  <!-- 72px -->
+  <div class="brand-text">
+    <span class="ja">整体サロン</span>
+    <div class="bottom-row">
+      <span class="kanji">整</span>   <!-- 28px Noto Serif JP -->
+      <span class="en">totonou</span> <!-- 22px Cormorant Garamond -->
+    </div>
+  </div>
+</a>
+```
+
+## ヒーロー左下ブランド構成
+
+```html
+<div class="hero-brand">
+  <div class="logo-circle">
+    <img src="logo-new.png">  <!-- 130px -->
+  </div>
+  <div class="name">
+    <span class="tag">整体サロン</span>  <!-- 18px、margin-bottom:-20px -->
+    <div class="bottom-row">
+      <span class="ja-name">整</span>       <!-- 78px Noto Serif JP -->
+      <span class="en-name">totonou</span>  <!-- 34px Cormorant Garamond -->
+    </div>
+  </div>
+</div>
+```
+
+## JS構成（index.html末尾 `<script>` タグ内）
+
+- `header.scrolled` クラスのトグル（スクロール検知）
+- ハンバーガーメニュー開閉
+- スライドショー: `setInterval` 5500ms、`.slide.active` クラス切替
+- スクロールフェードイン: `IntersectionObserver`、`.fade` → `.in` クラス付与
+
 ## 未完了の作業
 
 | 項目 | 状態 |
 |---|---|
 | BEFORE & AFTER 写真 | ダミーグラデーション（写真未入稿） |
-| 施術者 写真・氏名・経歴 | ダミーテキスト（要入力） |
+| 施術者 写真・氏名・経歴 | ダミーテキスト（要入力）、写真ファイル名は `therapist.jpg` 推奨 |
 | 「症例をもっと見る」リンク | `href="#"` のまま |
 | 「詳しいプロフィール」リンク | `href="#"` のまま |
 | Googleマップ | `.access-map` に埋め込み未完了 |
