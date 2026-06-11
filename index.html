@@ -70,8 +70,9 @@
     background:#fff;
   }
   .btn-book:hover{background:var(--ink);color:#fff}
-  .hamb{display:none;width:44px;height:44px;border:none;background:transparent;cursor:pointer;flex-direction:column;justify-content:center;align-items:center;gap:6px}
-  .hamb span{display:block;width:24px;height:1px;background:var(--ink);transition:.3s}
+  .hamb{display:none;width:52px;height:52px;border:none;background:transparent;cursor:pointer;flex-direction:column;justify-content:center;align-items:center;gap:6px}
+  .hamb .bar{display:block;width:24px;height:1px;background:var(--ink);transition:.3s}
+  .hamb .hamb-label{display:block;font-size:11px;letter-spacing:.08em;color:var(--ink);font-family:"Noto Sans JP",sans-serif;line-height:1;margin-top:2px}
 
   /* mobile nav */
   .mobile-nav{
@@ -527,7 +528,8 @@
       <a href="#access" class="btn-book">アクセス・ご予約</a>
     </div>
     <button class="hamb" aria-label="menu" id="hambBtn">
-      <span></span><span></span><span></span>
+      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      <span class="hamb-label">メニュー</span>
     </button>
   </div>
 </header>
