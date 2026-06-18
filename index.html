@@ -332,8 +332,8 @@
   /* ============ THERAPIST ============ */
   .therapist{background:var(--beige);padding:140px 6%}
   .therapist-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;max-width:1100px;margin:0 auto}
-  .therapist-photo{position:relative;border-radius:54px 66px 48px 60px;overflow:hidden;aspect-ratio:3/4}
-  .therapist-photo .tslide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% top;display:block;opacity:0;transition:opacity 1.6s ease}
+  .therapist-photo{position:relative;border-radius:54px 66px 48px 60px;overflow:hidden;aspect-ratio:4/5}
+  .therapist-photo .tslide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:0;transition:opacity 1.6s ease}
   .therapist-photo .tslide.active{opacity:1}
   .therapist-photo::after{content:"";position:absolute;bottom:0;left:0;right:0;height:40%;background:linear-gradient(transparent,rgba(42,42,42,.18));pointer-events:none}
   .therapist-text .label-en{font-family:"Cormorant Garamond",serif;font-size:11px;letter-spacing:.4em;color:var(--teal);margin-bottom:20px;display:block}
@@ -932,8 +932,8 @@
 <section class="therapist" id="therapist">
   <div class="therapist-inner fade">
     <div class="therapist-photo">
-      <img src="therapist-1.jpg" class="tslide active" alt="施術者">
-      <img src="therapist-2.jpg" class="tslide" alt="施術者と看板犬 梅">
+      <img src="therapist-1.jpg" class="tslide active" alt="施術者" style="object-position:68% center">
+      <img src="therapist-2.jpg" class="tslide" alt="施術者と看板犬 梅" style="object-position:58% center">
     </div>
     <div class="therapist-text">
       <span class="label-en">OWNER &amp; THERAPIST</span>
