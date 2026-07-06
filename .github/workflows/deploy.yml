@@ -19,5 +19,5 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: e91671a3454db408bd26fb03624f5279
-          preCommands: npx wrangler pages project create sei-hp --production-branch=main || echo "project already exists"
-          command: pages deploy . --project-name=sei-hp --branch=main --commit-dirty=true
+          preCommands: npx wrangler pages project create totonou-hp --production-branch=main || echo "project already exists"
+          command: pages deploy . --project-name=totonou-hp --branch=main --commit-dirty=true
