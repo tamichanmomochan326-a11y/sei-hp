@@ -32,6 +32,19 @@ git commit --no-gpg-sign -m "メッセージ"
 ```
 `--no-gpg-sign` を必ず付けること（GPG署名エラー回避）。
 
+## 公開の流れ（2026-07-06 更新：Pushまで自動化）
+
+ユーザーが「公開して」「mainにマージして」と言ったら、**以下を一括で実行する（ユーザーのPush操作は不要）**：
+
+1. 作業ブランチをコミット → `git checkout main` → `git merge` → `git push origin main`
+2. mainへのPushで GitHub Actions が Cloudflare Pages へ自動デプロイする（`.github/workflows/deploy.yml`）
+3. 1〜2分待って公開URLを curl で確認し、反映されたことをユーザーに報告する
+
+- 公開URL: https://sei-hp.pages.dev/ （Cloudflare Pages・mainへのPushで自動更新）
+- 旧URL: https://tamichanmomochan326-a11y.github.io/sei-hp/ （GitHub Pages・こちらも動いている）
+- ⚠️ mainへのPush＝**本番公開**。ユーザーの依頼（「公開して」等）があったときだけ行い、勝手にPushしない
+- Cloudflare の APIトークンは GitHub の Secrets（`CLOUDFLARE_API_TOKEN`）にあり、コードには書かない
+
 ## 画像ファイルのルール
 
 - **base64埋め込み禁止** — 必ず外部ファイル参照（`index.html` と同じフォルダに置く）
