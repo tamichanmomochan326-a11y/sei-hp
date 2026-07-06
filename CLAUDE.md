@@ -44,12 +44,11 @@ git commit --no-gpg-sign -m "メッセージ"
 ```
 `border:none` 必須（画像自体の枠とCSSの枠が二重になるのを防ぐため）
 
-## 画像ファイル一覧
+## 画像ファイル一覧（index.html が実際に参照しているもの）
 
 | ファイル名 | 用途 |
 |---|---|
-| `logo-new.png` | ヘッダーロゴ・ヒーロー左下ロゴ（72px / 130px） |
-| `logo.png` | フッターロゴ |
+| `logo-new.png` | ヘッダーロゴ・ヒーロー左下ロゴ・フッターロゴ |
 | `image-1779934233633.jpg` | スライドショー1枚目 |
 | `image-1779934228345.jpg` | スライドショー2枚目 |
 | `image-1779934231618.jpg` | スライドショー3枚目 |
@@ -58,14 +57,20 @@ git commit --no-gpg-sign -m "メッセージ"
 | `concept.png` | CONCEPTセクション写真 |
 | `about-1.jpg` | 当院ができること：カウンセリング（左上） |
 | `about-2.jpg` | 当院ができること：体のおはなし（右上） |
-| `about-3.jpg` / `about-3-new.jpg` | 当院ができること：セルフケア指導（左下） |
-| `about-4.jpg` / `about-4-new.jpg` | 当院ができること：体質改善指導（右下） |
+| `about-3-new.jpg` | 当院ができること：セルフケア指導（左下） |
+| `about-4-new.jpg` | 当院ができること：体質改善指導（右下） |
 | `icons-about.png` | 当院ができることセクションのアイコン（骨・関節・筋肉・神経） |
 | `icon-shoulder.png` | お悩みカード：肩こり・首こり |
 | `icon-back.png` | お悩みカード：腰の張り・腰痛 |
 | `icon-cold.png` | お悩みカード：冷え・むくみ |
 | `icon-nerve.png` | お悩みカード：自律神経の乱れ |
+| `icon-jaw.png` | お悩みカード：夜間の食いしばり |
+| `icon-face.png` | お悩みカード：顔の大きさ・左右差 |
+| `icon-diet.png` | お悩みカード：ダイエット＆体質改善 |
 | `icon-price.png` | お悩みカード：料金について |
+| `therapist-1.jpg` / `therapist-2.jpg` | 施術者写真（2枚クロスフェード表示） |
+
+※ `logo.png` は削除済み（フッターも `logo-new.png` を使用）。`about-3.jpg`・`about-4.jpg`・`sejutsudai1.jpg` はフォルダに残っているが未使用。
 
 ## デザイントークン
 
@@ -87,12 +92,12 @@ git commit --no-gpg-sign -m "メッセージ"
 1. HEADER（固定） — logo-new.png、TEL: 070-9111-8430
 2. HERO — 5枚スライドショー（5.5秒間隔自動切替）＋縦書きキャッチ
 3. CONCEPT — concept.png + テキスト
-4. ABOUT TILES — about-1〜4.jpg の4枚グリッド
-5. CONCERN（お悩みカード）— icon-*.png の5枚カード
+4. ABOUT TILES — about-1 / about-2 / about-3-new / about-4-new の4枚グリッド
+5. CONCERN（お悩みカード）— icon-*.png の8枚カード
 6. BEFORE & AFTER — ※写真未入稿（グラデーションダミー）
 7. MENU & PRICE
 8. VOICE（お客様の声）
-9. THERAPIST — ※写真・氏名・経歴未入稿
+9. THERAPIST — 写真は therapist-1.jpg / therapist-2.jpg のクロスフェード入稿済み ※氏名・経歴はダミーのまま
 10. INFO + SNS
 11. ACCESS（Googleマップ未埋め込み）
 12. CTA（予約バナー）
@@ -137,13 +142,14 @@ git commit --no-gpg-sign -m "メッセージ"
 - スライドショー: `setInterval` 5500ms、`.slide.active` クラス切替
 - スクロールフェードイン: `IntersectionObserver`、`.fade` → `.in` クラス付与
 
-## 未完了の作業
+## 未完了の作業（2026-07-05 時点）
 
 | 項目 | 状態 |
 |---|---|
 | BEFORE & AFTER 写真 | ダミーグラデーション（写真未入稿） |
-| 施術者 写真・氏名・経歴 | ダミーテキスト（要入力）、写真ファイル名は `therapist.jpg` 推奨 |
+| 施術者 氏名・経歴 | ダミーテキストのまま（「施術者名」「Therapist Name」を要差し替え） |
 | 「症例をもっと見る」リンク | `href="#"` のまま |
 | 「詳しいプロフィール」リンク | `href="#"` のまま |
+| SNSボタンのリンク先 | `href="#"` のまま（Instagram等のURL未設定） |
 | Googleマップ | `.access-map` に埋め込み未完了 |
 | 営業時間・住所・料金 | ダミーデータの可能性あり（要確認） |
