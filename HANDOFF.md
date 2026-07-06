@@ -8,14 +8,19 @@
 
 ## 公開場所
 
-- **公開URL**: https://tamichanmomochan326-a11y.github.io/sei-hp/ （GitHub Pages）
+- **公開URL**: https://sei-hp.pages.dev/ （Cloudflare Pages）
+- 旧URL: https://tamichanmomochan326-a11y.github.io/sei-hp/ （GitHub Pages・こちらも稼働中）
 - **リポジトリ**: https://github.com/tamichanmomochan326-a11y/sei-hp （※Public設定）
 - 確認方法: ローカルでは `index.html` をブラウザで直接開く。画像差し替え後は **Cmd+Shift+R**（強制リロード）
 
-## Git の使い方
+## 公開のしかた（2026-07-06 から全自動）
+
+たみかさんが **「公開して」と言うだけ**。あとは Claude が
+「mainへマージ → Push → 自動デプロイ → 公開URLの確認」まで全部やる。
+GitHub Desktop での Push 操作は不要になった。
 
 - コミット時は必ず `git commit --no-gpg-sign -m "メッセージ"`（GPG署名エラー回避）
-- 作業ブランチ: `claude/gallant-wozniak-ve83yy`（作業後に main へマージして公開に反映）
+- 作業は `claude/〜` ブランチで行い、公開時に main へマージする
 
 ---
 
