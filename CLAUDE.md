@@ -40,8 +40,8 @@ git commit --no-gpg-sign -m "メッセージ"
 2. mainへのPushで GitHub Actions が Cloudflare Pages へ自動デプロイする（`.github/workflows/deploy.yml`）
 3. 1〜2分待って公開URLを curl で確認し、反映されたことをユーザーに報告する
 
-- 公開URL: https://sei-hp.pages.dev/ （Cloudflare Pages・mainへのPushで自動更新）
-- 旧URL: https://tamichanmomochan326-a11y.github.io/sei-hp/ （GitHub Pages・こちらも動いている）
+- 公開URL: https://totonou-hp.pages.dev/ （Cloudflare Pages・mainへのPushで自動更新。2026-07-07 に sei-hp から改名）
+- 旧URL: https://sei-hp.pages.dev/ （旧Cloudflareプロジェクト・更新されず残存）、https://tamichanmomochan326-a11y.github.io/sei-hp/ （GitHub Pages・稼働中）
 - ⚠️ mainへのPush＝**本番公開**。ユーザーの依頼（「公開して」等）があったときだけ行い、勝手にPushしない
 - Cloudflare の APIトークンは GitHub の Secrets（`CLOUDFLARE_API_TOKEN`）にあり、コードには書かない
 
