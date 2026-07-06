@@ -10,7 +10,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 **新しいセッションが始まったら、最初にユーザーへ以下を伝える：**
 
-> 「このセッションの変更は `claude/（ブランチ名）` というブランチに保存されます。作業終了時に『mainにマージして』と言ってもらえれば、GitHub Desktop で Fetch → Pull するだけで反映できます。」
+> 「このセッションの変更は `claude/（ブランチ名）` というブランチに保存されます。作業が終わったら『公開して』と言ってもらえれば、mainへのマージ → Push → 公開反映の確認まで、こちらですべて行います。」
 
 ## ⚠️ 会話の圧縮が近づいたら必ず伝えること
 
