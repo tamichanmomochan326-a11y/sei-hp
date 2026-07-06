@@ -8,8 +8,8 @@
 
 ## 公開場所
 
-- **公開URL**: https://sei-hp.pages.dev/ （Cloudflare Pages）
-- 旧URL: https://tamichanmomochan326-a11y.github.io/sei-hp/ （GitHub Pages・こちらも稼働中）
+- **公開URL**: https://totonou-hp.pages.dev/ （Cloudflare Pages・2026-07-07 に sei-hp から改名）
+- 旧URL: https://sei-hp.pages.dev/ （改名前のもの・今後は更新されない）、https://tamichanmomochan326-a11y.github.io/sei-hp/ （GitHub Pages・稼働中）
 - **リポジトリ**: https://github.com/tamichanmomochan326-a11y/sei-hp （※Public設定）
 - 確認方法: ローカルでは `index.html` をブラウザで直接開く。画像差し替え後は **Cmd+Shift+R**（強制リロード）
 
