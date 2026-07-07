@@ -475,15 +475,13 @@
     display:grid;grid-template-columns:1fr 2fr 1fr;gap:80px;
     max-width:1280px;margin:0 auto;
   }
-  .foot-brand{display:flex;flex-direction:column;align-items:flex-start;gap:14px}
-  .foot-brand .logo{
-    width:84px;height:84px;background:var(--teal);
-    border-radius:18px 22px 16px 20px;
-    display:flex;align-items:center;justify-content:center;
-  }
-  .foot-brand .logo img{width:54px;filter:brightness(0) invert(1)}
-  .foot-brand .vert{font-size:11px;letter-spacing:.5em;color:var(--ink-soft);margin-top:10px}
-  .foot-brand .name{font-size:24px;letter-spacing:.15em;font-weight:500}
+  .foot-brand{display:flex;align-items:center;gap:14px}
+  .foot-brand .foot-logo{width:72px;height:72px;object-fit:contain}
+  .foot-brand-text{display:flex;flex-direction:column;line-height:1.2}
+  .foot-brand-text .ja{font-size:13px;letter-spacing:.25em;color:var(--ink-soft);font-family:"Noto Sans JP",sans-serif}
+  .foot-brand-text .bottom-row{display:flex;align-items:baseline;gap:8px}
+  .foot-brand-text .kanji{font-family:"Noto Serif JP",serif;font-size:28px;font-weight:600;color:var(--ink);letter-spacing:.05em}
+  .foot-brand-text .en{font-family:"Cormorant Garamond",serif;font-size:22px;letter-spacing:.18em;color:var(--ink)}
   .foot-cols{display:grid;grid-template-columns:repeat(2,1fr);gap:40px}
   .foot-cols ul{list-style:none;display:flex;flex-direction:column;gap:14px}
   .foot-cols a{font-size:13px;letter-spacing:.1em;color:var(--ink);display:flex;align-items:center;gap:8px}
