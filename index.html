@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>整 totonou｜整体サロン</title>
+<title>整 totonou｜一宮市のプライベート整体サロン</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
     --teal:#48B4E0;
@@ -17,7 +17,9 @@
     --warm:#FAF8F2;
     --ink:#2A2A2A;
     --ink-soft:#484848;
+    --ink-dark:#1F2528;
     --line:#E5E5E0;
+    --line-dark:rgba(255,255,255,.14);
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
@@ -31,527 +33,338 @@
   }
   img{max-width:100%;display:block}
   a{color:inherit;text-decoration:none}
-  .vert{writing-mode:vertical-rl;font-feature-settings:"vpal";letter-spacing:.15em}
+  .en-kicker{
+    font-family:"Cormorant Garamond",serif;
+    font-size:13px;letter-spacing:.55em;color:var(--teal);
+    display:block;margin-bottom:20px;font-weight:500;text-transform:uppercase;
+  }
+  .sec-head{text-align:center;margin-bottom:72px}
+  .sec-head h2{font-size:34px;letter-spacing:.14em;font-weight:500;line-height:1.7}
+  .sec-head .lead{font-size:14px;color:var(--ink-soft);margin-top:22px;letter-spacing:.08em;line-height:2.2}
+  .sec-head .rule{width:1px;height:44px;background:var(--teal);margin:26px auto 0}
+  section{padding:130px 6%;position:relative}
+  .roman{font-family:"Cormorant Garamond",serif;font-weight:400}
 
   /* ============ HEADER ============ */
   header{
     position:fixed;top:0;left:0;right:0;z-index:100;
-    background:rgba(255,255,255,.96);
-    backdrop-filter:blur(8px);
-    border-bottom:1px solid transparent;
-    transition:border-color .3s;
+    background:linear-gradient(180deg,rgba(250,248,242,.94) 0%,rgba(250,248,242,.75) 55%,rgba(250,248,242,0) 100%);
+    transition:background .4s,box-shadow .4s;
   }
-  header.scrolled{border-bottom-color:var(--line)}
-  .nav-inner{
-    display:flex;align-items:center;justify-content:space-between;
-    padding:14px 32px;gap:24px;
-  }
-  .brand{display:flex;align-items:center;gap:14px}
-  .brand img{width:96px;height:96px;object-fit:contain}
+  header.scrolled{background:rgba(255,255,255,.96);backdrop-filter:blur(8px);box-shadow:0 1px 0 var(--line)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:12px 28px;gap:20px}
+  .brand{display:flex;align-items:center;gap:12px}
+  .brand img{width:76px;height:76px;object-fit:contain}
   .brand-text{display:flex;flex-direction:column;line-height:1.2}
-  .brand-text .ja{font-size:15px;letter-spacing:.25em;color:var(--ink);font-family:"Noto Sans JP",sans-serif}
-  .brand-text .bottom-row{display:flex;align-items:baseline;gap:8px}
-  .brand-text .kanji{font-family:"Noto Serif JP",serif;font-size:34px;font-weight:600;color:var(--ink);letter-spacing:.05em}
-  .brand-text .en{font-family:"Cormorant Garamond",serif;font-size:27px;letter-spacing:.18em;color:var(--ink)}
-  nav ul{display:flex;list-style:none;align-items:center;gap:24px}
-  nav a{font-size:14px;font-family:"Noto Serif JP",serif;color:var(--ink);position:relative;padding:6px 0;white-space:nowrap}
-  nav a .caret{font-size:9px;margin-left:4px;color:var(--ink-soft)}
-  nav a:hover{color:var(--teal-deep)}
-  .header-right{display:flex;align-items:center;gap:20px}
-  .tel-head{display:flex;align-items:center;gap:6px;font-family:"Cormorant Garamond",serif}
-  .tel-head .num{font-size:22px;letter-spacing:.04em;color:var(--ink);white-space:nowrap}
-  .tel-head .note{font-size:11px;color:var(--ink-soft);font-family:"Noto Sans JP",sans-serif;letter-spacing:.05em;white-space:nowrap}
-  .tel-head::before{content:"";width:1px;height:24px;background:var(--line);margin-right:14px}
+  .brand-text .ja{font-size:12px;letter-spacing:.28em;font-family:"Noto Sans JP",sans-serif;color:var(--ink)}
+  .brand-text .bottom-row{display:flex;align-items:baseline;gap:7px}
+  .brand-text .kanji{font-size:27px;font-weight:600;letter-spacing:.05em}
+  .brand-text .en{font-family:"Cormorant Garamond",serif;font-size:21px;letter-spacing:.16em}
+  nav ul{display:flex;list-style:none;align-items:center;gap:22px}
+  nav a{font-size:13px;letter-spacing:.12em;position:relative;padding:6px 0;white-space:nowrap}
+  nav a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--teal);transition:width .3s}
+  nav a:hover::after{width:100%}
+  .header-right{display:flex;align-items:center;gap:18px}
+  .tel-head{display:flex;flex-direction:column;align-items:flex-end;line-height:1.4}
+  .tel-head .num{font-family:"Cormorant Garamond",serif;font-size:20px;letter-spacing:.04em;white-space:nowrap}
+  .tel-head .note{font-size:10px;color:var(--ink-soft);font-family:"Noto Sans JP",sans-serif;letter-spacing:.1em;white-space:nowrap}
   .btn-book{
-    border:1px solid var(--ink);
-    padding:14px 22px;font-size:13px;letter-spacing:.2em;
-    font-family:"Noto Serif JP",serif;
-    transition:all .25s;
-    background:#fff;
-    white-space:nowrap;
+    background:#06C755;color:#fff;
+    padding:14px 26px;font-size:13px;letter-spacing:.2em;
+    transition:opacity .25s;white-space:nowrap;
   }
-  .btn-book:hover{background:var(--ink);color:#fff}
+  .btn-book:hover{opacity:.85}
   .hamb{display:none;width:52px;height:52px;border:none;background:transparent;cursor:pointer;flex-direction:column;justify-content:center;align-items:center;gap:6px}
-  .hamb .bar{display:block;width:24px;height:1px;background:var(--ink);transition:.3s}
-  .hamb .hamb-label{display:block;font-size:11px;letter-spacing:.08em;color:var(--ink);font-family:"Noto Sans JP",sans-serif;line-height:1;margin-top:2px}
-
-  /* mobile nav */
+  .hamb .bar{display:block;width:26px;height:1px;background:var(--ink)}
+  .hamb .hamb-label{font-size:10px;letter-spacing:.1em;font-family:"Noto Sans JP",sans-serif;margin-top:3px}
   .mobile-nav{
-    display:none;position:fixed;top:0;left:0;right:0;bottom:0;
-    background:rgba(255,255,255,.98);z-index:99;
-    flex-direction:column;align-items:center;justify-content:center;gap:40px;
+    display:none;position:fixed;inset:0;background:rgba(250,248,242,.98);z-index:99;
+    flex-direction:column;align-items:center;justify-content:center;gap:30px;
   }
   .mobile-nav.open{display:flex}
-  .mobile-nav a{font-size:18px;letter-spacing:.2em;font-family:"Noto Serif JP",serif}
-  .mobile-nav .close-btn{
-    position:absolute;top:20px;right:24px;
-    background:transparent;border:none;font-size:28px;cursor:pointer;color:var(--ink);
-  }
-  .mobile-nav .tel-mob{
-    font-family:"Cormorant Garamond",serif;font-size:28px;letter-spacing:.04em;margin-top:8px;
-  }
+  .mobile-nav a{font-size:17px;letter-spacing:.22em}
+  .mobile-nav .close-btn{position:absolute;top:20px;right:24px;background:none;border:none;font-size:28px;cursor:pointer;color:var(--ink)}
 
-  /* ============ HERO SLIDESHOW ============ */
-  .hero{
-    position:relative;height:100vh;min-height:640px;
-    overflow:hidden;background:#fff;
-  }
+  /* ============ HERO ============ */
+  .hero{position:relative;height:100vh;min-height:660px;overflow:hidden;padding:0;background:var(--ink-dark)}
   .slides{position:absolute;inset:0}
-  .slide{
-    position:absolute;inset:0;
-    background-size:cover;background-position:center;
-    opacity:0;transition:opacity 1.6s ease;
-    transform:scale(1.05);
-  }
-  .slide.active{opacity:1;transform:scale(1);transition:opacity 1.6s ease, transform 8s ease}
-  .slide::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,255,255,.55) 0%,rgba(255,255,255,.05) 40%,rgba(255,255,255,0) 60%,rgba(255,255,255,.35) 100%)}
-
-  .slide.s1{background-image:url('image-1779934233633.jpg');background-color:#dfd6c0}
-  .slide.s2{background-image:url('image-1779934228345.jpg');background-color:#ebe5d4}
-  .slide.s3{background-image:url('image-1779934231618.jpg');background-color:#e3dcc8}
-  .slide.s4{background-image:url('image-1779934223142.jpg');background-color:#e8e2d0}
-  .slide.s5{background-image:url('image-1779934235594.jpg');background-color:#e6e0cf}
-
-  .hero-copy-left{
-    position:absolute;left:6%;top:50%;transform:translateY(-50%);
-    z-index:5;
-  }
-  .hero-copy-left .vert{
-    font-size:14px;color:var(--ink-soft);letter-spacing:.4em;
-    font-family:"Noto Serif JP",serif;
-  }
-  .hero-copy-right{
-    position:absolute;right:8%;top:50%;transform:translateY(-50%);
-    z-index:5;display:flex;gap:32px;align-items:flex-start;
-  }
-  .hero-copy-right .vert{
-    font-size:22px;color:var(--ink);letter-spacing:.25em;
-    font-weight:400;line-height:2.2;
-  }
-  .hero-copy-right .vert.lead{font-size:26px;font-weight:500}
-  .hero-brand{
-    position:absolute;left:6%;bottom:8%;z-index:5;
-    display:flex;align-items:center;gap:24px;
-  }
-  .hero-brand .logo-circle{width:170px;height:170px;display:flex;align-items:center;justify-content:center}
-  .hero-brand .logo-circle img{width:170px;height:170px;filter:none;object-fit:contain}
-  .hero-brand .name{display:flex;flex-direction:column}
-  .hero-brand .tag{font-size:18px;letter-spacing:.3em;color:var(--ink);font-family:"Noto Sans JP",sans-serif;margin-bottom:-20px;line-height:1}
-  .hero-brand .bottom-row{display:flex;align-items:baseline;gap:12px}
-  .hero-brand .ja-name{font-family:"Noto Serif JP",serif;font-size:78px;letter-spacing:.05em;color:var(--ink);font-weight:600}
-  .hero-brand .en-name{font-family:"Cormorant Garamond",serif;font-size:34px;letter-spacing:.2em;color:var(--ink)}
-
-  .slide-dots{
-    position:absolute;right:32px;bottom:32px;z-index:6;
-    display:flex;gap:10px;
-  }
-  .slide-dots button{
-    width:8px;height:8px;border-radius:50%;border:none;
-    background:rgba(0,0,0,.2);cursor:pointer;padding:0;
-    transition:.3s;
-  }
-  .slide-dots button.active{background:var(--teal);width:24px;border-radius:4px}
-
-  /* ============ SECTION COMMON ============ */
-  section{padding:120px 6%;position:relative}
-  .sec-head{text-align:center;margin-bottom:80px}
-  .sec-head .en{
-    font-family:"Cormorant Garamond",serif;
-    font-size:14px;letter-spacing:.4em;color:var(--teal);
-    display:block;margin-bottom:18px;font-weight:500;
-  }
-  .sec-head h2{
-    font-size:32px;letter-spacing:.15em;font-weight:500;
-    color:var(--ink);
-  }
-  .sec-head .icons{
-    display:flex;justify-content:center;gap:48px;margin-bottom:32px;
-  }
-
-  .ricon{
-    width:78px;height:78px;
-    border:1.5px solid var(--teal);
-    border-radius:18px 22px 16px 20px;
+  .slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transform:scale(1.06);transition:opacity 1.8s ease}
+  .slide.active{opacity:1;transform:scale(1);transition:opacity 1.8s ease,transform 9s ease}
+  .slide::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(31,37,40,.42) 0%,rgba(31,37,40,.28) 45%,rgba(31,37,40,.62) 100%)}
+  .slide.s1{background-image:url('image-1779934233633.jpg')}
+  .slide.s2{background-image:url('image-1779934228345.jpg')}
+  .slide.s3{background-image:url('image-1779934231618.jpg')}
+  .slide.s4{background-image:url('image-1779934223142.jpg')}
+  .slide.s5{background-image:url('image-1779934235594.jpg')}
+  .hero-inner{
+    position:relative;z-index:5;height:100%;
     display:flex;flex-direction:column;align-items:center;justify-content:center;
-    color:var(--teal);background:#fff;
+    text-align:center;color:#fff;padding:0 6%;
+  }
+  .hero-kicker{
+    font-family:"Cormorant Garamond",serif;font-size:13px;letter-spacing:.7em;
+    color:var(--beige-deep);margin-bottom:36px;text-transform:uppercase;
+  }
+  .hero-inner h1{
+    font-size:clamp(34px,5.2vw,64px);font-weight:500;letter-spacing:.12em;
+    line-height:1.8;text-shadow:0 2px 24px rgba(0,0,0,.35);
+  }
+  .hero-inner h1 .accent{color:var(--beige-deep)}
+  .hero-sub{
+    margin-top:34px;font-size:15px;letter-spacing:.14em;line-height:2.4;
+    color:rgba(255,255,255,.92);text-shadow:0 1px 12px rgba(0,0,0,.4);
+  }
+  .hero-ctas{display:flex;gap:22px;margin-top:52px;flex-wrap:wrap;justify-content:center}
+  .hero-btn{
+    display:inline-flex;align-items:center;gap:12px;
+    padding:17px 44px;font-size:13px;letter-spacing:.25em;
     transition:.3s;
   }
-  .ricon:hover{background:var(--teal-soft)}
-  .ricon svg{width:42px;height:42px;stroke:var(--teal);fill:none;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+  .hero-btn::after{content:"→"}
+  .hero-btn.fill{background:var(--beige-deep);color:var(--ink)}
+  .hero-btn.fill:hover{background:#fff}
+  .hero-btn.ghost{border:1px solid rgba(255,255,255,.7);color:#fff}
+  .hero-btn.ghost:hover{background:rgba(255,255,255,.15)}
+  .hero-scroll{
+    position:absolute;bottom:30px;left:50%;transform:translateX(-50%);z-index:6;
+    color:rgba(255,255,255,.8);font-family:"Cormorant Garamond",serif;
+    font-size:11px;letter-spacing:.5em;display:flex;flex-direction:column;align-items:center;gap:10px;
+  }
+  .hero-scroll::after{content:"";width:1px;height:44px;background:linear-gradient(rgba(255,255,255,.9),transparent);animation:scrolldrop 2s infinite}
+  @keyframes scrolldrop{0%{transform:scaleY(0);transform-origin:top}45%{transform:scaleY(1);transform-origin:top}55%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+  @media (max-height:720px){.hero-scroll{display:none}}
+  .slide-dots{position:absolute;right:30px;bottom:30px;z-index:6;display:flex;gap:10px}
+  .slide-dots button{width:8px;height:8px;border-radius:50%;border:none;background:rgba(255,255,255,.4);cursor:pointer;padding:0;transition:.3s}
+  .slide-dots button.active{background:var(--beige-deep);width:24px;border-radius:4px}
 
-  /* ============ CONCEPT ============ */
-  .intro{
-    display:grid;grid-template-columns:1fr 1.1fr;gap:80px;
-    align-items:center;max-width:1280px;margin:0 auto;
-  }
-  .intro-photo{
-    aspect-ratio:4/5;
-    background:url('concept.png') top center/cover no-repeat;
-    border-radius:54px 66px 48px 60px;position:relative;
-  }
-  .intro-photo::before{content:none}
-  .intro-text h3{
-    font-size:30px;line-height:2;letter-spacing:.1em;
-    margin-bottom:32px;font-weight:500;
-    text-wrap:pretty;
-  }
-  .intro-text p{
-    font-size:15px;line-height:2.2;color:var(--ink-soft);
-    text-align:left;hanging-punctuation:first;
-  }
-  .intro-text .more{
-    display:inline-flex;align-items:center;gap:14px;
-    margin-top:40px;font-size:13px;letter-spacing:.3em;
-    border-bottom:1px solid var(--ink);padding-bottom:6px;
-  }
-  .intro-text .more::after{content:"→";color:var(--teal)}
+  /* ============ PHILOSOPHY ============ */
+  .philosophy{background:#fff;text-align:center}
+  .phil-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;max-width:1180px;margin:0 auto}
+  .phil-item{padding:36px 26px;position:relative}
+  .phil-item + .phil-item::before{content:"";position:absolute;left:0;top:20%;bottom:20%;width:1px;background:var(--line)}
+  .phil-item .p-en{font-family:"Cormorant Garamond",serif;font-size:12px;letter-spacing:.4em;color:var(--teal);display:block;margin-bottom:16px}
+  .phil-item .p-kanji{font-size:42px;font-weight:500;letter-spacing:.1em;display:block;margin-bottom:20px}
+  .phil-item p{font-size:13px;color:var(--ink-soft);line-height:2.1;letter-spacing:.05em}
+  .phil-close{margin-top:70px;font-size:20px;letter-spacing:.3em;color:var(--ink)}
+  .phil-close .dot{color:var(--teal);margin:0 10px;font-size:14px;vertical-align:middle}
 
-  /* ============ ABOUT TILES ============ */
-  .about{background:var(--warm);padding:140px 6%}
-  .about-grid{
-    display:grid;grid-template-columns:repeat(2,1fr);gap:40px;
-    max-width:1320px;margin:0 auto;
-  }
-  .about-tile{display:flex;flex-direction:column}
-  .about-tile .ph{aspect-ratio:16/10;position:relative;overflow:hidden;border-radius:54px 66px 48px 60px}
-  .about-tile.a1 .ph{background:url('about-1.jpg') center/cover no-repeat}
-  .about-tile.a2 .ph{background:url('about-2.jpg') center/cover no-repeat}
-  .about-tile.a3 .ph{background:url('about-3-new.jpg') center/cover no-repeat}
-  .about-tile.a4 .ph{background:url('about-4-new.jpg') center/cover no-repeat}
-  .about-tile .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 30%,rgba(0,0,0,.35) 100%)}
-  .about-tile .label{position:absolute;left:32px;top:28px;color:#fff;font-size:28px;letter-spacing:.15em;font-weight:500;z-index:2;text-shadow:0 2px 8px rgba(0,0,0,.3)}
-  .about-tile.a2 .label,.about-tile.a3 .label,.about-tile.a4 .label{color:#1a1a1a;text-shadow:-2px -2px 0 #fff,2px -2px 0 #fff,-2px 2px 0 #fff,2px 2px 0 #fff,0 0 12px #fff}
-  .about-tile.a1 .label{text-shadow:-1px -1px 0 #000,1px -1px 0 #000,-1px 1px 0 #000,1px 1px 0 #000,0 2px 8px rgba(0,0,0,.4)}
-  .about-tile .desc{padding:24px 4px 0;font-size:13px;color:var(--ink-soft);line-height:1.9}
+  /* ============ FACT BAND ============ */
+  .facts{background:var(--ink-dark);color:#fff;padding:80px 6%}
+  .facts-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;max-width:1180px;margin:0 auto;text-align:center}
+  .fact{padding:10px 20px;position:relative}
+  .fact + .fact::before{content:"";position:absolute;left:0;top:15%;bottom:15%;width:1px;background:var(--line-dark)}
+  .fact .f-num{font-family:"Cormorant Garamond",serif;font-size:44px;color:var(--beige-deep);line-height:1.3}
+  .fact .f-num .small{font-size:22px}
+  .fact .f-en{font-family:"Cormorant Garamond",serif;font-size:11px;letter-spacing:.4em;color:rgba(255,255,255,.55);display:block;margin:8px 0 6px}
+  .fact .f-ja{font-size:13px;letter-spacing:.12em;color:rgba(255,255,255,.9)}
 
-  /* ============ CONCERN CARDS ============ */
-  .concern{background:#fff;padding:140px 6%}
-  .concern-grid{
-    display:grid;grid-template-columns:repeat(4,1fr);gap:24px;
-    max-width:1320px;margin:0 auto;
+  /* ============ REASONS ============ */
+  .reasons{background:var(--warm)}
+  .reason-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:34px;max-width:1240px;margin:0 auto}
+  .rcard{background:#fff;border:1px solid var(--line);padding:0 0 40px;transition:.35s;display:flex;flex-direction:column}
+  .rcard:hover{transform:translateY(-6px);box-shadow:0 18px 44px rgba(72,180,224,.12);border-color:var(--teal)}
+  .rcard .r-ph{aspect-ratio:16/10;background-size:cover;background-position:center;position:relative}
+  .rcard.r1 .r-ph{background-image:url('about-1.jpg')}
+  .rcard.r2 .r-ph{background-image:url('concept.png')}
+  .rcard.r3 .r-ph{background-image:url('sejutsudai1.jpg')}
+  .rcard .r-roman{
+    font-family:"Cormorant Garamond",serif;font-size:52px;color:var(--beige-deep);
+    line-height:1;margin:-28px 0 0 32px;position:relative;z-index:2;
+    background:#fff;display:inline-block;width:max-content;padding:0 16px 0 0;
   }
-  .ccard{
-    background:#fff;border:1px solid var(--line);
-    padding:40px 24px;text-align:center;
-    transition:.3s;cursor:pointer;
-  }
+  .rcard .r-en{font-family:"Cormorant Garamond",serif;font-size:11px;letter-spacing:.4em;color:var(--teal);margin:18px 36px 10px}
+  .rcard h3{font-size:20px;letter-spacing:.1em;font-weight:500;margin:0 36px 16px;line-height:1.8}
+  .rcard p{font-size:14px;color:var(--ink-soft);line-height:2.1;margin:0 36px}
+
+  /* ============ CONCERN ============ */
+  .concern{background:#fff}
+  .concern-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;max-width:1240px;margin:0 auto}
+  .ccard{border:1px solid var(--line);padding:38px 22px 32px;text-align:center;transition:.3s;background:#fff}
   .ccard:hover{border-color:var(--teal);transform:translateY(-4px);box-shadow:0 12px 30px rgba(72,180,224,.08)}
-  .ccard .ricon{margin:0 auto 20px;width:78px;height:78px}
-  .ccard .ricon svg{width:42px;height:42px}
-  .ccard h4{font-size:16px;letter-spacing:.1em;margin-bottom:10px;font-weight:500}
-  .ccard p{font-size:14px;color:var(--ink-soft);line-height:1.8;letter-spacing:.05em}
+  .ccard img{width:72px;height:72px;object-fit:contain;margin:0 auto 16px}
+  .ccard .c-en{font-family:"Cormorant Garamond",serif;font-size:10px;letter-spacing:.32em;color:var(--teal);display:block;margin-bottom:8px;text-transform:uppercase}
+  .ccard h4{font-size:16px;letter-spacing:.08em;margin-bottom:10px;font-weight:500}
+  .ccard p{font-size:13px;color:var(--ink-soft);line-height:1.9;letter-spacing:.04em}
 
-  /* ============ BEFORE & AFTER ============ */
-  .ba-section{background:var(--beige);padding:140px 6%}
-  .ba-sub{font-size:14px;color:var(--ink-soft);line-height:2;letter-spacing:.08em;margin-top:18px}
-  .ba-filter{display:flex;justify-content:center;flex-wrap:wrap;gap:14px;margin-bottom:56px}
-  .ba-fbtn{border:1px solid var(--teal);background:#fff;color:var(--teal-deep);font-size:13px;letter-spacing:.15em;font-family:"Noto Sans JP",sans-serif;padding:10px 26px;border-radius:2px;cursor:pointer;transition:all .25s}
-  .ba-fbtn:hover{background:var(--teal-soft)}
-  .ba-fbtn.active{background:var(--teal);color:#fff}
-  .ba-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:40px}
-  .ba-card{background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.06);transition:transform .3s,box-shadow .3s}
-  .ba-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(72,180,224,.12)}
-  .ba-chips{display:flex;flex-wrap:wrap;gap:8px;padding:24px 24px 0}
-  .ba-chip{font-size:11px;letter-spacing:.1em;font-family:"Noto Sans JP",sans-serif;padding:5px 12px;border-radius:2px;background:var(--teal-soft);color:var(--teal-deep)}
-  .ba-chip.solid{background:var(--teal);color:#fff}
-  .ba-photos{display:grid;grid-template-columns:1fr 1fr;gap:2px;padding:20px 24px 0}
-  .ba-photo{aspect-ratio:3/4;display:flex;align-items:flex-end;justify-content:center;position:relative;overflow:hidden;border-radius:4px}
-  .ba-photo.before{background:linear-gradient(135deg,#c8c0ab,#a89e88)}
-  .ba-photo.after{background:linear-gradient(135deg,#7bbfd8,#48b4e0)}
-  .ba-photo .lbl{font-family:"Cormorant Garamond",serif;font-size:12px;letter-spacing:.2em;color:#fff;background:rgba(0,0,0,.35);width:100%;text-align:center;padding:6px 0;font-style:italic}
-  .ba-subcap{text-align:center;font-size:12px;color:var(--ink-soft);letter-spacing:.1em;padding:10px 24px 0}
-  .ba-info{padding:18px 24px 24px}
-  .ba-title{font-size:17px;letter-spacing:.05em;color:var(--ink);margin-bottom:12px;font-weight:500;line-height:1.6}
-  .ba-desc{font-size:13px;color:var(--ink-soft);line-height:1.9;margin-bottom:16px}
-  .ba-keys{display:flex;flex-wrap:wrap;gap:6px 14px;padding-top:14px;border-top:1px solid var(--line);margin-bottom:14px}
-  .ba-key{font-size:11px;color:var(--ink-soft);letter-spacing:.05em}
-  .ba-key::before{content:"#";color:var(--teal);margin-right:2px}
-  .ba-meta{font-size:12px;color:var(--ink-soft);letter-spacing:.05em}
-  .ba-more-wrap{text-align:center;margin-top:56px}
-  .ba-more{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--teal);color:var(--teal);padding:14px 48px;font-size:13px;letter-spacing:.2em;font-family:"Noto Sans JP",sans-serif;transition:all .3s;border-radius:2px}
-  .ba-more:hover{background:var(--teal);color:#fff}
-  .ba-more::after{content:"→"}
-  @media(max-width:768px){.ba-grid{grid-template-columns:1fr;gap:24px}}
-
-  /* ============ MENU / PRICE ============ */
-  .menu{background:var(--warm);padding:140px 6%}
+  /* ============ MENU ============ */
+  .menu{background:var(--warm)}
   .first-trial{
-    max-width:980px;margin:0 auto 64px;
-    background:#fff;border:2px solid var(--teal);border-radius:12px;
-    padding:40px 32px;text-align:center;
+    max-width:960px;margin:0 auto 70px;background:#fff;
+    border:1px solid var(--beige-deep);position:relative;
+    padding:52px 36px 44px;text-align:center;
   }
+  .first-trial::before{content:"";position:absolute;inset:7px;border:1px solid var(--line);pointer-events:none}
   .first-trial .ft-badge{
-    display:inline-block;background:var(--teal);color:#fff;
-    font-size:12px;letter-spacing:.25em;padding:6px 20px;border-radius:2px;
-    font-family:"Noto Sans JP",sans-serif;margin-bottom:18px;
+    position:absolute;top:-16px;left:50%;transform:translateX(-50%);
+    background:var(--teal);color:#fff;font-size:12px;letter-spacing:.3em;
+    padding:7px 26px;font-family:"Noto Sans JP",sans-serif;white-space:nowrap;
   }
-  .first-trial .ft-main{font-size:22px;letter-spacing:.08em;color:var(--ink);font-weight:500;line-height:1.6}
-  .first-trial .ft-main strong{
-    font-family:"Cormorant Garamond",serif;font-size:46px;
-    color:var(--teal-deep);font-weight:600;letter-spacing:.02em;margin-left:8px;
-  }
-  .first-trial .ft-note{font-size:13px;color:var(--ink-soft);margin-top:12px;line-height:1.9}
-  .cta-tel-sub{font-size:13px;color:var(--ink-soft);letter-spacing:.05em;font-family:"Noto Serif JP",serif}
-  .cta-tel-sub a{text-decoration:underline}
-  .cta-line-row{display:flex;align-items:center;gap:32px;flex-wrap:wrap}
-  .cta-qr{display:flex;flex-direction:column;align-items:center;gap:8px}
-  .cta-qr img{width:112px;height:112px;background:#fff;border:1px solid var(--line);border-radius:8px;padding:6px}
-  .cta-qr span{font-size:11px;color:var(--ink-soft);letter-spacing:.05em;font-family:"Noto Serif JP",serif}
-  .menu-list{
-    max-width:980px;margin:0 auto;
-    display:flex;flex-direction:column;gap:0;
-  }
+  .first-trial .ft-main{font-size:21px;letter-spacing:.1em;font-weight:500;line-height:1.7}
+  .first-trial .ft-main strong{font-family:"Cormorant Garamond",serif;font-size:52px;color:var(--teal-deep);font-weight:600;letter-spacing:.02em;margin-left:10px}
+  .first-trial .ft-note{font-size:13px;color:var(--ink-soft);margin-top:14px;line-height:2}
+  .menu-list{max-width:960px;margin:0 auto}
   .menu-row{
-    display:grid;grid-template-columns:140px 1fr auto auto;gap:32px;
-    align-items:center;padding:32px 8px;
-    border-bottom:1px solid var(--line);
+    display:grid;grid-template-columns:90px 1fr auto;gap:30px;align-items:center;
+    padding:34px 10px;border-bottom:1px solid var(--line);
   }
   .menu-row:first-child{border-top:1px solid var(--line)}
-  .menu-row .num{
-    font-family:"Cormorant Garamond",serif;
-    font-size:13px;letter-spacing:.4em;color:var(--teal);
-  }
-  .menu-row h4{
-    font-size:20px;letter-spacing:.1em;font-weight:500;
-    margin-bottom:6px;
-  }
-  .menu-row p{font-size:14px;color:var(--ink-soft);line-height:1.7}
-  .menu-row .time{font-size:13px;color:var(--ink-soft);letter-spacing:.1em;font-family:"Noto Sans JP",sans-serif}
-  .menu-row .price{
-    font-family:"Cormorant Garamond",serif;
-    font-size:24px;letter-spacing:.05em;color:var(--ink);
-  }
-  .menu-row .price .yen{font-size:13px;margin-right:2px;font-family:"Noto Sans JP",sans-serif}
-  .menu-row .first-badge{
-    display:inline-block;background:var(--teal);color:#fff;
-    font-size:10px;padding:3px 10px;border-radius:2px;
-    letter-spacing:.2em;margin-left:10px;font-family:"Noto Sans JP",sans-serif;
-    vertical-align:middle;
-  }
+  .menu-row .num{font-family:"Cormorant Garamond",serif;font-size:30px;color:var(--beige-deep);text-align:center}
+  .menu-row h4{font-size:19px;letter-spacing:.1em;font-weight:500;margin-bottom:6px}
+  .menu-row p{font-size:13.5px;color:var(--ink-soft);line-height:1.9}
+  .menu-row .price{font-family:"Cormorant Garamond",serif;font-size:26px;letter-spacing:.04em}
+  .menu-row .price .yen{font-size:14px;margin-right:2px;font-family:"Noto Sans JP",sans-serif}
+  .menu-note{max-width:960px;margin:34px auto 0;font-size:13px;color:var(--ink-soft);line-height:2.1}
 
   /* ============ COMING SOON ============ */
   .coming-soon{
-    max-width:720px;margin:0 auto;text-align:center;
-    background:#fff;border:1px solid var(--line);border-radius:8px;
-    padding:72px 32px;
+    max-width:680px;margin:0 auto;text-align:center;
+    background:#fff;border:1px solid var(--line);padding:76px 32px;position:relative;
   }
-  .coming-soon .cs-en{
-    font-family:"Cormorant Garamond",serif;font-size:18px;
-    letter-spacing:.45em;color:var(--teal);display:block;margin-bottom:18px;
-  }
-  .coming-soon p{font-size:14px;color:var(--ink-soft);line-height:2;letter-spacing:.05em}
-  .coming-soon.mini{padding:40px 24px;margin:0;max-width:none}
-
-  /* ============ VOICE ============ */
-  .voice{padding:140px 6%}
-  .voice-grid{
-    display:grid;grid-template-columns:repeat(3,1fr);gap:32px;
-    max-width:1280px;margin:0 auto;
-  }
-  .vcard{
-    background:#fff;border:1px solid var(--line);
-    padding:40px 32px;position:relative;
-  }
-  .vcard::before{
-    content:"❝";font-family:"Cormorant Garamond",serif;
-    font-size:64px;color:var(--teal);
-    position:absolute;left:24px;top:8px;line-height:1;
-  }
-  .vcard .stars{color:var(--teal);font-size:13px;letter-spacing:.2em;margin-bottom:16px;margin-top:24px}
-  .vcard h4{font-size:16px;letter-spacing:.1em;font-weight:500;margin-bottom:14px;text-wrap:pretty}
-  .vcard p{font-size:14px;color:var(--ink-soft);line-height:1.9;text-wrap:pretty}
-  .vcard .who{
-    margin-top:24px;padding-top:20px;border-top:1px solid var(--line);
-    font-size:13px;color:var(--ink-soft);letter-spacing:.1em;
-  }
+  .coming-soon::before{content:"";position:absolute;inset:7px;border:1px solid var(--warm);pointer-events:none}
+  .coming-soon .cs-en{font-family:"Cormorant Garamond",serif;font-size:17px;letter-spacing:.5em;color:var(--teal);display:block;margin-bottom:18px}
+  .coming-soon p{font-size:14px;color:var(--ink-soft);line-height:2.2;letter-spacing:.05em}
 
   /* ============ THERAPIST ============ */
-  .therapist{background:var(--beige);padding:140px 6%}
-  .therapist-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;max-width:1100px;margin:0 auto}
-  .therapist-photo{position:relative;border-radius:54px 66px 48px 60px;overflow:hidden;aspect-ratio:4/5}
-  .therapist-photo .tslide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:0;transition:opacity 1.6s ease}
+  .therapist{background:var(--beige)}
+  .therapist-inner{display:grid;grid-template-columns:1fr 1.15fr;gap:80px;align-items:center;max-width:1120px;margin:0 auto}
+  .therapist-photo{position:relative;overflow:hidden;aspect-ratio:4/5}
+  .therapist-photo::before{
+    content:"";position:absolute;top:14px;left:14px;right:-14px;bottom:-14px;
+    border:1px solid var(--beige-deep);z-index:0;pointer-events:none;
+  }
+  .therapist-photo .ph-frame{position:absolute;inset:0;overflow:hidden}
+  .therapist-photo .tslide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.6s ease}
   .therapist-photo .tslide.active{opacity:1}
-  .therapist-photo::after{content:"";position:absolute;bottom:0;left:0;right:0;height:40%;background:linear-gradient(transparent,rgba(42,42,42,.18));pointer-events:none}
-  .therapist-text .label-en{font-family:"Cormorant Garamond",serif;font-size:11px;letter-spacing:.4em;color:var(--teal);margin-bottom:20px;display:block}
-  .therapist-text .name-ja{font-size:42px;letter-spacing:.15em;color:var(--ink);font-weight:400;margin-bottom:8px;font-family:"Noto Serif JP",serif}
-  .therapist-text .name-en{font-family:"Cormorant Garamond",serif;font-size:16px;letter-spacing:.25em;color:var(--ink-soft);margin-bottom:40px;display:block;font-style:italic}
-  .therapist-text .bio{font-size:15px;line-height:2.2;color:var(--ink-soft);margin-bottom:40px}
-  .therapist-text .bio p+p{margin-top:18px}
-  .therapist-specs{border-top:1px solid var(--line);padding-top:32px;display:flex;flex-direction:column;gap:14px;margin-bottom:40px}
+  .therapist-text .label-en{font-family:"Cormorant Garamond",serif;font-size:12px;letter-spacing:.5em;color:var(--teal);margin-bottom:22px;display:block}
+  .therapist-text .name-ja{font-size:42px;letter-spacing:.16em;font-weight:500;margin-bottom:6px}
+  .therapist-text .name-en{font-family:"Cormorant Garamond",serif;font-size:15px;letter-spacing:.26em;color:var(--ink-soft);margin-bottom:38px;display:block;font-style:italic}
+  .therapist-text .bio{font-size:15px;line-height:2.3;color:var(--ink-soft);margin-bottom:38px}
+  .therapist-text .bio p+p{margin-top:16px}
+  .therapist-specs{border-top:1px solid rgba(42,42,42,.18);padding-top:30px;display:flex;flex-direction:column;gap:13px}
   .therapist-spec{display:grid;grid-template-columns:100px 1fr;gap:16px;font-size:13px}
-  .therapist-spec .spec-key{font-family:"Cormorant Garamond",serif;font-style:italic;color:var(--teal);letter-spacing:.15em}
-  .therapist-spec .spec-val{color:var(--ink-soft);letter-spacing:.05em;line-height:1.8}
-  .therapist-btn{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--ink);color:var(--ink);padding:14px 40px;font-size:13px;letter-spacing:.2em;font-family:"Noto Sans JP",sans-serif;transition:all .3s}
-  .therapist-btn:hover{background:var(--ink);color:#fff}
-  .therapist-btn::after{content:"→"}
-  @media(max-width:900px){.therapist-inner{grid-template-columns:1fr;gap:48px}}
+  .therapist-spec .spec-key{font-family:"Cormorant Garamond",serif;font-style:italic;color:var(--teal-deep);letter-spacing:.15em}
+  .therapist-spec .spec-val{color:var(--ink-soft);letter-spacing:.04em;line-height:1.9}
 
-  /* ============ INFO + SNS row ============ */
-  .info-sns{padding:120px 6%;background:#fff;position:relative}
-  .info-sns-inner{
-    display:grid;grid-template-columns:1.4fr 1fr;gap:80px;
-    max-width:1280px;margin:0 auto;
+  /* ============ FLOW ============ */
+  .flow{background:#fff}
+  .flow-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;max-width:1240px;margin:0 auto}
+  .fstep{border:1px solid var(--line);padding:44px 28px 38px;position:relative;background:#fff;transition:.3s}
+  .fstep:hover{border-color:var(--teal)}
+  .fstep::after{
+    content:"→";position:absolute;right:-22px;top:50%;transform:translateY(-50%);
+    color:var(--beige-deep);font-size:18px;z-index:2;
   }
-  .info-block .label,
-  .sns-block .label{
-    font-family:"Cormorant Garamond",serif;
-    font-size:18px;letter-spacing:.4em;color:var(--ink);
-    margin-bottom:32px;font-weight:500;
-  }
-  .info-list{display:flex;flex-direction:column}
-  .info-row{
-    display:grid;grid-template-columns:120px 1fr;gap:24px;
-    padding:18px 0;border-bottom:1px solid var(--line);
-    align-items:center;
-  }
-  .info-row .date{
-    font-family:"Cormorant Garamond",serif;
-    color:var(--teal);font-size:14px;letter-spacing:.15em;
-  }
-  .info-row .title{font-size:14px;color:var(--ink);letter-spacing:.05em}
-  .sns-block{display:flex;flex-direction:column;gap:14px}
-  .sns-btn{
-    display:flex;align-items:center;justify-content:space-between;
-    border:1px solid var(--line);padding:18px 24px;
-    font-size:13px;letter-spacing:.2em;
-    transition:.25s;
-  }
-  .sns-btn:hover{border-color:var(--teal);background:var(--teal-soft)}
-  .sns-btn .l{display:flex;align-items:center;gap:14px;color:var(--ink)}
-  .sns-btn svg{width:20px;height:20px;stroke:var(--teal);fill:none;stroke-width:1.5}
-  .sns-btn .arrow{color:var(--ink-soft)}
-  .sns-vert{
-    position:absolute;right:3%;top:50%;transform:translateY(-50%);
-    color:var(--ink);font-size:13px;letter-spacing:.6em;line-height:2.2;
-  }
+  .fstep:last-child::after{content:none}
+  .fstep .f-roman{font-family:"Cormorant Garamond",serif;font-size:34px;color:var(--beige-deep);font-style:italic;line-height:1;display:block;margin-bottom:20px}
+  .fstep h4{font-size:17px;letter-spacing:.1em;font-weight:500;margin-bottom:14px}
+  .fstep p{font-size:13px;color:var(--ink-soft);line-height:2}
+
+  /* ============ RESERVATION ============ */
+  .reserve{background:var(--ink-dark);color:#fff;text-align:center}
+  .reserve .en-kicker{color:var(--beige-deep)}
+  .reserve h2{font-size:34px;letter-spacing:.14em;font-weight:500;line-height:1.9}
+  .reserve .r-lead{font-size:14px;color:rgba(255,255,255,.78);margin-top:24px;letter-spacing:.1em;line-height:2.3}
+  .reserve-actions{display:flex;justify-content:center;align-items:center;gap:44px;margin-top:56px;flex-wrap:wrap}
+  .reserve-line{display:flex;flex-direction:column;align-items:center;gap:16px}
+  .reserve-qr{display:flex;flex-direction:column;align-items:center;gap:10px}
+  .reserve-qr img{width:118px;height:118px;background:#fff;padding:7px}
+  .reserve-qr span{font-size:11px;letter-spacing:.12em;color:rgba(255,255,255,.7);font-family:"Noto Sans JP",sans-serif}
+  .reserve-tel{margin-top:44px;font-size:13px;color:rgba(255,255,255,.75);letter-spacing:.08em}
+  .reserve-tel a{font-family:"Cormorant Garamond",serif;font-size:30px;color:var(--beige-deep);letter-spacing:.05em;margin:0 8px}
+  .reserve-hours{margin-top:14px;font-size:12px;color:rgba(255,255,255,.6);line-height:2;letter-spacing:.06em}
 
   /* ============ ACCESS ============ */
-  .access{
-    display:grid;grid-template-columns:1.1fr 1fr;gap:0;
-    background:#fff;align-items:stretch;position:relative;
-  }
-  .access-map{
-    background:linear-gradient(135deg,#e8e8df 0%,#d4d4c8 100%);
-    min-height:540px;position:relative;
-  }
-  .access-map iframe{
-    position:absolute;inset:0;width:100%;height:100%;border:0;
-  }
-  .access-info{padding:100px 6% 100px 80px;position:relative}
-  .access-info .vert-label{
-    position:absolute;right:6%;top:100px;
-    color:var(--ink);font-size:13px;letter-spacing:.6em;
-  }
-  .access-info h3{font-size:22px;letter-spacing:.15em;font-weight:500;margin-bottom:32px}
-  .access-info dl{display:grid;grid-template-columns:80px 1fr;gap:20px 24px;font-size:13px;line-height:2}
-  .access-info dt{color:var(--ink-soft);letter-spacing:.1em}
+  .access{display:grid;grid-template-columns:1.1fr 1fr;gap:0;padding:0;background:#fff;align-items:stretch}
+  .access-map{min-height:560px;position:relative;background:var(--warm)}
+  .access-map iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .access-info{padding:100px 7% 100px 72px}
+  .access-info .en-kicker{margin-bottom:14px}
+  .access-info h3{font-size:22px;letter-spacing:.14em;font-weight:500;margin-bottom:36px}
+  .access-info dl{display:grid;grid-template-columns:88px 1fr;gap:20px 24px;font-size:13px;line-height:2.1}
+  .access-info dt{color:var(--ink-soft);letter-spacing:.1em;padding-top:1px}
   .access-info dd{color:var(--ink)}
   .access-info dd .marker{color:var(--teal);margin-right:6px;font-weight:700}
 
-  /* ============ CTA BAND ============ */
-  .cta-band{background:var(--beige);padding:80px 6%}
-  .cta-inner{
-    max-width:1100px;margin:0 auto;
-    display:grid;grid-template-columns:1fr 1.2fr;gap:60px;
-    align-items:center;
-  }
-  .cta-left h3{font-size:30px;letter-spacing:.1em;font-weight:500;margin-bottom:14px}
-  .cta-left p{font-size:13px;color:var(--ink-soft);line-height:2}
-  .cta-right{display:flex;flex-direction:column;gap:16px}
-  .cta-tel{
-    display:flex;align-items:baseline;gap:8px;
-    font-family:"Cormorant Garamond",serif;
-  }
-  .cta-tel .lab{font-size:16px;letter-spacing:.15em;color:var(--ink)}
-  .cta-tel .num{font-size:46px;letter-spacing:.02em;color:var(--ink);line-height:1}
-  .cta-hours{font-size:12px;color:var(--ink-soft);letter-spacing:.05em;line-height:1.9;font-family:"Noto Serif JP",serif}
-  .cta-status{display:flex;align-items:center;gap:14px;margin-top:8px}
-  .cta-status .badge{background:#fff;border:1px solid var(--line);font-size:11px;padding:8px 14px;letter-spacing:.15em;color:var(--ink-soft)}
-  .cta-status .note{font-size:11px;color:var(--ink-soft);line-height:1.8}
-
   /* ============ FOOTER ============ */
-  footer{background:#fff;padding:80px 6% 40px}
-  .foot-inner{
-    display:grid;grid-template-columns:1fr 2fr 1fr;gap:80px;
-    max-width:1280px;margin:0 auto;
-  }
-  .foot-brand{display:flex;align-items:center;gap:14px}
-  .foot-brand .foot-logo{width:96px;height:96px;object-fit:contain}
-  .foot-brand-text{display:flex;flex-direction:column;line-height:1.2}
-  .foot-brand-text .ja{font-size:15px;letter-spacing:.25em;color:var(--ink);font-family:"Noto Sans JP",sans-serif}
+  footer{background:var(--ink-dark);color:#fff;padding:90px 6% 40px}
+  .foot-inner{display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;gap:56px;max-width:1280px;margin:0 auto}
+  .foot-brand{display:flex;flex-direction:column;gap:20px}
+  .foot-brand-row{display:flex;align-items:center;gap:14px}
+  .foot-brand img{width:84px;height:84px;object-fit:contain;background:#fff;border-radius:50%;padding:4px}
+  .foot-brand-text{display:flex;flex-direction:column;line-height:1.25}
+  .foot-brand-text .ja{font-size:12px;letter-spacing:.28em;font-family:"Noto Sans JP",sans-serif;color:rgba(255,255,255,.85)}
   .foot-brand-text .bottom-row{display:flex;align-items:baseline;gap:8px}
-  .foot-brand-text .kanji{font-family:"Noto Serif JP",serif;font-size:34px;font-weight:600;color:var(--ink);letter-spacing:.05em}
-  .foot-brand-text .en{font-family:"Cormorant Garamond",serif;font-size:27px;letter-spacing:.18em;color:var(--ink)}
-  .foot-cols{display:grid;grid-template-columns:repeat(2,1fr);gap:40px}
-  .foot-cols ul{list-style:none;display:flex;flex-direction:column;gap:14px}
-  .foot-cols a{font-size:13px;letter-spacing:.1em;color:var(--ink);display:flex;align-items:center;gap:8px}
-  .foot-cols a::before{content:"›";color:var(--teal)}
-  .foot-cols a:hover{color:var(--teal-deep)}
-  .foot-sns{display:flex;flex-direction:column;gap:14px}
-  .foot-sns .label{font-family:"Cormorant Garamond",serif;font-size:13px;letter-spacing:.4em;color:var(--ink-soft)}
-  .foot-sns .icons{display:flex;gap:14px}
-  .foot-sns .icons a{
-    width:36px;height:36px;border:1px solid var(--line);
-    display:flex;align-items:center;justify-content:center;
-    transition:.25s;
-  }
-  .foot-sns .icons a:hover{border-color:var(--teal);background:var(--teal-soft)}
-  .foot-sns .icons svg{width:16px;height:16px;stroke:var(--ink);fill:none;stroke-width:1.5}
+  .foot-brand-text .kanji{font-size:30px;font-weight:600;letter-spacing:.05em}
+  .foot-brand-text .en{font-family:"Cormorant Garamond",serif;font-size:22px;letter-spacing:.16em;color:rgba(255,255,255,.9)}
+  .foot-brand .desc{font-size:12.5px;color:rgba(255,255,255,.62);line-height:2.1;letter-spacing:.06em}
+  .foot-col .label{font-family:"Cormorant Garamond",serif;font-size:12px;letter-spacing:.45em;color:var(--beige-deep);margin-bottom:24px}
+  .foot-col ul{list-style:none;display:flex;flex-direction:column;gap:13px}
+  .foot-col a,.foot-col .txt{font-size:13px;letter-spacing:.08em;color:rgba(255,255,255,.82);display:flex;align-items:center;gap:8px}
+  .foot-col a::before{content:"›";color:var(--teal)}
+  .foot-col a:hover{color:#fff}
+  .foot-col .txt{color:rgba(255,255,255,.72)}
   .copy{
-    text-align:center;margin-top:80px;padding-top:32px;
-    border-top:1px solid var(--line);
-    font-size:11px;color:var(--ink-soft);letter-spacing:.15em;
+    text-align:center;margin-top:76px;padding-top:30px;
+    border-top:1px solid var(--line-dark);
+    font-size:11px;color:rgba(255,255,255,.5);letter-spacing:.18em;
     font-family:"Noto Sans JP",sans-serif;line-height:2;
   }
+
+  /* fade in */
+  .fade{opacity:0;transform:translateY(24px);transition:opacity 1s ease,transform 1s ease}
+  .fade.in{opacity:1;transform:none}
 
   /* ============ Responsive ============ */
   @media (max-width:1100px){
     .nav-inner nav,.nav-inner .tel-head{display:none}
     .hamb{display:flex}
-    .intro{grid-template-columns:1fr;gap:48px}
-    .access{grid-template-columns:1fr}
-    .access-info{padding:60px 6%}
-    .info-sns-inner{grid-template-columns:1fr;gap:60px}
-    .cta-inner{grid-template-columns:1fr;gap:32px}
-    .foot-inner{grid-template-columns:1fr;gap:48px}
-    .voice-grid{grid-template-columns:1fr}
-    .about-grid{grid-template-columns:1fr}
-    .hero-copy-right .vert{font-size:18px}
-    .hero-copy-right .vert.lead{font-size:21px}
-    .menu-row{grid-template-columns:1fr;gap:8px;padding:24px 0}
-    .menu-row .num{font-size:11px}
-    .hero-brand .ja-name{font-size:28px}
-    .hero-brand .logo-circle{width:128px;height:128px}
-    .hero-brand .logo-circle img{width:128px;height:128px}
-    section{padding:80px 6%}
-    .sec-head h2{font-size:24px}
+    section{padding:88px 6%}
+    .sec-head h2{font-size:26px}
+    .phil-grid{grid-template-columns:repeat(2,1fr)}
+    .phil-item:nth-child(3)::before{content:none}
+    .facts-grid{grid-template-columns:repeat(2,1fr);gap:34px 0}
+    .fact:nth-child(3)::before{content:none}
+    .reason-grid{grid-template-columns:1fr;max-width:560px}
     .concern-grid{grid-template-columns:repeat(2,1fr)}
-    .hero-copy-left{display:none}
+    .therapist-inner{grid-template-columns:1fr;gap:56px}
+    .flow-grid{grid-template-columns:repeat(2,1fr)}
+    .fstep:nth-child(2)::after{content:none}
+    .access{grid-template-columns:1fr}
+    .access-info{padding:64px 6%}
+    .access-map{min-height:380px}
+    .foot-inner{grid-template-columns:1fr;gap:44px}
   }
   @media (max-width:600px){
-    .concern-grid{grid-template-columns:1fr}
-    .hero-copy-right{right:5%;gap:16px}
-    .hero-copy-right .vert{font-size:16px}
-    .hero-copy-right .vert.lead{font-size:18px}
-    .foot-cols{grid-template-columns:1fr}
-    /* スマホはロゴ画像自体に「整 totonou」が入っているため、ヘッダーの重なり防止に文字を整理しボタンを優先 */
-    .nav-inner{padding:12px 18px;gap:12px}
-    .brand img{width:72px;height:72px}
-    .brand-text{display:none}
-    .header-right{gap:10px}
+    .brand img{width:60px;height:60px}
+    .brand-text .kanji{font-size:22px}
+    .brand-text .en{font-size:17px}
     .btn-book{padding:12px 16px;font-size:12px;letter-spacing:.1em}
+    .nav-inner{padding:10px 16px;gap:10px}
+    .hero-kicker{letter-spacing:.42em;font-size:11px}
+    .hero-inner h1{font-size:27px;letter-spacing:.08em}
+    .hero-sub{font-size:13px;letter-spacing:.08em}
+    .hero-btn{padding:15px 30px;font-size:12px;letter-spacing:.16em}
+    .phil-grid{grid-template-columns:1fr}
+    .phil-item + .phil-item::before{content:none}
+    .phil-item + .phil-item{border-top:1px solid var(--line)}
+    .concern-grid{grid-template-columns:1fr}
+    .facts-grid{grid-template-columns:1fr;gap:30px}
+    .fact + .fact::before{content:none}
+    .flow-grid{grid-template-columns:1fr}
+    .fstep::after{content:none}
+    .menu-row{grid-template-columns:1fr;gap:10px;padding:26px 0}
+    .menu-row .num{text-align:left}
+    .first-trial .ft-main strong{font-size:40px}
+    .reserve h2{font-size:25px}
+    .reserve-actions{gap:28px}
   }
-
-  /* fade in */
-  .fade{opacity:0;transform:translateY(20px);transition:opacity 1s ease,transform 1s ease}
-  .fade.in{opacity:1;transform:none}
 </style>
 </head>
 <body>
 
 <header id="header">
   <div class="nav-inner">
-    <a href="#" class="brand">
+    <a href="#top" class="brand">
       <img src="logo-new.png" alt="整 totonou">
       <div class="brand-text">
         <span class="ja">整体サロン</span>
@@ -563,19 +376,21 @@
     </a>
     <nav>
       <ul>
-        <li><a href="#concept">はじめての方へ</a></li>
-        <li><a href="#about">整について</a></li>
-        <li><a href="#menu">施術内容・料金</a></li>
-        <li><a href="#voice">よくあるご質問</a></li>
+        <li><a href="#philosophy">整の真髄</a></li>
+        <li><a href="#reasons">選ばれる理由</a></li>
+        <li><a href="#concern">お悩み</a></li>
+        <li><a href="#menu">メニュー</a></li>
+        <li><a href="#voice">お客様の声</a></li>
+        <li><a href="#therapist">施術者</a></li>
         <li><a href="#access">アクセス</a></li>
       </ul>
     </nav>
     <div class="header-right">
       <div class="tel-head">
         <a href="tel:070-9111-8430" class="num">070-9111-8430</a>
-        <span class="note">（電話でも受付）</span>
+        <span class="note">電話でも受付（完全予約制）</span>
       </div>
-      <a href="https://lin.ee/ZWKkKza" target="_blank" rel="noopener" class="btn-book" style="background:#06C755;border-color:#06C755;color:#fff">LINEで予約</a>
+      <a href="https://lin.ee/ZWKkKza" target="_blank" rel="noopener" class="btn-book">LINEで予約</a>
     </div>
     <button class="hamb" aria-label="menu" id="hambBtn">
       <span class="bar"></span><span class="bar"></span><span class="bar"></span>
@@ -587,17 +402,19 @@
 <!-- Mobile nav overlay -->
 <div class="mobile-nav" id="mobileNav">
   <button class="close-btn" id="closeNav">✕</button>
-  <a href="#concept" class="mob-link">はじめての方へ</a>
-  <a href="#about" class="mob-link">整について</a>
-  <a href="#menu" class="mob-link">施術内容・料金</a>
-  <a href="#voice" class="mob-link">よくあるご質問</a>
+  <a href="#philosophy" class="mob-link">整の真髄</a>
+  <a href="#reasons" class="mob-link">選ばれる理由</a>
+  <a href="#concern" class="mob-link">お悩み</a>
+  <a href="#menu" class="mob-link">メニュー</a>
+  <a href="#voice" class="mob-link">お客様の声</a>
+  <a href="#therapist" class="mob-link">施術者</a>
   <a href="#access" class="mob-link">アクセス</a>
-  <a href="https://lin.ee/ZWKkKza" target="_blank" rel="noopener"><img src="https://scdn.line-apps.com/n/line_add_friends/btn/ja.png" alt="友だち追加" height="36" border="0"></a>
+  <a href="https://lin.ee/ZWKkKza" target="_blank" rel="noopener"><img src="https://scdn.line-apps.com/n/line_add_friends/btn/ja.png" alt="友だち追加" height="36"></a>
   <a href="tel:070-9111-8430" style="font-size:14px;color:var(--ink-soft);font-family:'Noto Sans JP',sans-serif">お電話でも受付：070-9111-8430</a>
 </div>
 
 <!-- ============ HERO ============ -->
-<section class="hero" style="padding:0">
+<section class="hero" id="top">
   <div class="slides">
     <div class="slide s1 active"></div>
     <div class="slide s2"></div>
@@ -605,27 +422,16 @@
     <div class="slide s4"></div>
     <div class="slide s5"></div>
   </div>
-
-  <div class="hero-copy-left">
-    <div class="vert">そんな想いから生まれた<br>整える・寄り添う整体サロンです。</div>
-  </div>
-
-  <div class="hero-copy-right">
-    <div class="vert lead">本来の身体のリズムを<br>取り戻す為のお手伝いを</div>
-    <div class="vert">一人でも多くの方に<br>知っていただきたい</div>
-  </div>
-
-  <div class="hero-brand">
-    <div class="logo-circle"><img src="logo-new.png" alt=""></div>
-    <div class="name">
-      <span class="tag">整体サロン</span>
-      <div class="bottom-row">
-        <span class="ja-name">整</span>
-        <span class="en-name">totonou</span>
-      </div>
+  <div class="hero-inner">
+    <p class="hero-kicker">Aichi · Ichinomiya · Private Salon</p>
+    <h1>本来の身体のリズムを、<br><span class="accent">取り戻す。</span></h1>
+    <p class="hero-sub">肩こり・腰痛・冷え・自律神経の乱れに、やさしく寄り添う。<br>愛知県一宮市の完全予約制プライベート整体サロン「整 totonou」。</p>
+    <div class="hero-ctas">
+      <a href="https://lin.ee/ZWKkKza" target="_blank" rel="noopener" class="hero-btn fill">ご予約はこちら</a>
+      <a href="#menu" class="hero-btn ghost">メニューを見る</a>
     </div>
   </div>
-
+  <div class="hero-scroll">SCROLL</div>
   <div class="slide-dots">
     <button class="active" data-i="0"></button>
     <button data-i="1"></button>
@@ -635,122 +441,163 @@
   </div>
 </section>
 
-<!-- ============ CONCEPT ============ -->
-<section id="concept">
+<!-- ============ PHILOSOPHY ============ -->
+<section class="philosophy" id="philosophy">
   <div class="sec-head fade">
-    <span class="en">CONCEPT</span>
-    <h2>整える、寄り添う、サポートする。</h2>
+    <span class="en-kicker">Totonou's Philosophy</span>
+    <h2>整の真髄</h2>
+    <p class="lead">「整える」を合言葉に、身体を4つの視点から見つめます。</p>
+    <div class="rule"></div>
   </div>
-  <div class="intro fade">
-    <div class="intro-photo"></div>
-    <div class="intro-text">
-      <h3>日々の小さな不調を、<br>そのままにしないで。</h3>
-      <p>「整 totonou」は、肩こり・腰痛・歪み・冷え・自律神経の乱れなど、<br>毎日のなかで知らず知らずに溜まっていく不調を、やさしくほどいていく整体サロンです。</p>
-      <p style="margin-top:24px">お一人おひとりの身体の状態や生活リズムに寄り添いながら、<br>本来備わっている回復する力を引き出せるようサポートいたします。</p>
-      <p style="margin-top:24px">施術者が、丁寧なカウンセリングをもとに最適な施術プランをご提案。<br>「整える」を合言葉に、ほっと力を抜けるような空間づくりを心がけています。</p>
-      <a href="#about" class="more">VIEW MORE</a>
+  <div class="phil-grid fade">
+    <div class="phil-item">
+      <span class="p-en">SKELETON</span>
+      <span class="p-kanji">骨格</span>
+      <p>すべての土台となる骨格の歪みを、やさしく丁寧に整えます。</p>
+    </div>
+    <div class="phil-item">
+      <span class="p-en">JOINT</span>
+      <span class="p-kanji">関節</span>
+      <p>動きの要となる関節にアプローチし、しなやかな動きをサポート。</p>
+    </div>
+    <div class="phil-item">
+      <span class="p-en">MUSCLE</span>
+      <span class="p-kanji">筋肉</span>
+      <p>日々の負荷で固まった筋肉をほどき、めぐりの良い状態へ。</p>
+    </div>
+    <div class="phil-item">
+      <span class="p-en">NERVE</span>
+      <span class="p-kanji">神経</span>
+      <p>自律神経の乱れに寄り添い、休まる身体づくりをお手伝い。</p>
     </div>
   </div>
+  <p class="phil-close fade">整える<span class="dot">●</span>寄り添う<span class="dot">●</span>サポートする</p>
 </section>
 
-<!-- ============ ABOUT TILES ============ -->
-<section class="about" id="about">
-  <div class="sec-head fade">
-    <div class="icons">
-      <img src="icons-about.png" alt="骨・関節・筋肉・神経" style="height:78px;width:auto">
+<!-- ============ FACT BAND ============ -->
+<div class="facts">
+  <div class="facts-grid">
+    <div class="fact fade">
+      <div class="f-num"><span class="small">¥</span>4,980</div>
+      <span class="f-en">FIRST TRIAL</span>
+      <span class="f-ja">初回お試し価格（全コース）</span>
     </div>
-    <span class="en">ABOUT US</span>
-    <h2>当院ができること</h2>
+    <div class="fact fade">
+      <div class="f-num">1<span class="small">対</span>1</div>
+      <span class="f-en">PRIVATE</span>
+      <span class="f-ja">完全予約制・マンツーマン</span>
+    </div>
+    <div class="fact fade">
+      <div class="f-num">5<span class="small">コース</span></div>
+      <span class="f-en">MENU</span>
+      <span class="f-ja">目的に合わせて選べる施術</span>
+    </div>
+    <div class="fact fade">
+      <div class="f-num"><span class="small">出張</span>OK</div>
+      <span class="f-en">VISIT</span>
+      <span class="f-ja">一宮市内ほか出張整体対応</span>
+    </div>
   </div>
-  <div class="about-grid fade">
-    <div class="about-tile a1">
-      <div class="ph"><span class="label">カウンセリング</span></div>
-      <p class="desc">お客様のお身体のお悩みを丁寧にカウンセリングし、お客様に合った方針をご提案いたします。初回はカウンセリング＆施術で初回お試し価格にてご案内しておりますので、整体が初めての方もお気軽にご相談ください。</p>
+</div>
+
+<!-- ============ REASONS ============ -->
+<section class="reasons" id="reasons">
+  <div class="sec-head fade">
+    <span class="en-kicker">Our Identity</span>
+    <h2>整 totonou が大切にしている、<br>三つのこと</h2>
+    <p class="lead">マッサージでも、その場しのぎでもなく。<br>お一人おひとりの身体に寄り添い、本来備わっている回復する力を引き出すお手伝いをします。</p>
+    <div class="rule"></div>
+  </div>
+  <div class="reason-grid fade">
+    <div class="rcard r1">
+      <div class="r-ph"></div>
+      <span class="r-roman">Ⅰ</span>
+      <span class="r-en">COUNSELING</span>
+      <h3>丁寧なカウンセリング</h3>
+      <p>お悩みやご希望をじっくり伺い、お身体の状態や生活リズムに合わせた施術プランをご提案。初回はカウンセリング付きのお試し価格でご案内しています。</p>
     </div>
-    <div class="about-tile a2">
-      <div class="ph"><span class="label">身体のおはなし</span></div>
-      <p class="desc">日々の物理的な負荷や精神的なストレスが、身体にどのような影響をもたらしているのか。現状を丁寧にリサーチし、一人ひとりに合ったアプローチをご提案します。ココロとカラダの深いつながりを、わかりやすくお伝えします。</p>
+    <div class="rcard r2">
+      <div class="r-ph"></div>
+      <span class="r-roman">Ⅱ</span>
+      <span class="r-en">PRIVATE</span>
+      <h3>完全プライベート空間</h3>
+      <p>完全予約制のマンツーマン対応。静かなプライベートサロンで、周りを気にせずほっと力を抜ける時間をお過ごしいただけます。看板犬「梅」もお待ちしています。</p>
     </div>
-    <div class="about-tile a3">
-      <div class="ph"><span class="label">セルフケア指導</span></div>
-      <p class="desc">ご通院いただいている方限定で、ご自宅で続けられるセルフケアの方法をお伝えしております。しっかりと指導いたしますので、ご安心ください。元気で快適な日常を取り戻しましょう！</p>
-    </div>
-    <div class="about-tile a4">
-      <div class="ph"><span class="label">体質改善指導</span></div>
-      <p class="desc">数値が下がらない。むくみが取れない。毎年、花粉に負ける。それは、体が「助けて」と伝えているサインかもしれません。血糖値・血圧・コレステロール・体重・便秘・むくみ・肌荒れ——病院や薬だけでは届かない「根っこ」に、整のメソッドは働きかけます。体を、外側からも内側からも整えていく。それが、整独自の体質改善指導です。</p>
+    <div class="rcard r3">
+      <div class="r-ph"></div>
+      <span class="r-roman">Ⅲ</span>
+      <span class="r-en">SELF CARE</span>
+      <h3>セルフケアまでサポート</h3>
+      <p>施術して終わり、ではなく。ご自宅で続けられるセルフケアや、ココロとカラダのつながりのお話まで、日常に持ち帰れるかたちでお伝えします。</p>
     </div>
   </div>
 </section>
 
 <!-- ============ CONCERN ============ -->
-<section class="concern">
+<section class="concern" id="concern">
   <div class="sec-head fade">
-    <span class="en">YOUR CONCERN</span>
-    <h2>こんなお悩みはありませんか</h2>
+    <span class="en-kicker">Common Concerns</span>
+    <h2>こんなお悩み、ありませんか</h2>
+    <div class="rule"></div>
   </div>
   <div class="concern-grid fade">
     <div class="ccard">
-      <div class="ricon" style="border:none;width:78px;height:78px"><img src="icon-shoulder.png" style="width:78px;height:78px;object-fit:contain"></div>
+      <img src="icon-shoulder.png" alt="">
+      <span class="c-en">Stiff Shoulder</span>
       <h4>肩こり・首こり</h4>
-      <p>日々の疲労・ストレスからくる<br>肩こり・首こりを解消</p>
+      <p>日々の疲労・ストレスからくる肩や首の重さに</p>
     </div>
     <div class="ccard">
-      <div class="ricon" style="border:none;width:78px;height:78px"><img src="icon-back.png" style="width:78px;height:78px;object-fit:contain"></div>
+      <img src="icon-back.png" alt="">
+      <span class="c-en">Lower Back</span>
       <h4>腰の張り・腰痛</h4>
-      <p>ぎっくり腰の予防<br>慢性的な腰の痛み・重さ</p>
+      <p>ぎっくり腰の予防や、慢性的な腰の痛み・重さに</p>
     </div>
     <div class="ccard">
-      <div class="ricon" style="border:none;width:78px;height:78px"><img src="icon-cold.png" style="width:78px;height:78px;object-fit:contain"></div>
+      <img src="icon-cold.png" alt="">
+      <span class="c-en">Coldness</span>
       <h4>冷え・むくみ</h4>
-      <p>体を芯から温めて、<br>巡りを整えるサポート</p>
+      <p>体を芯から温めて、めぐりを整えるサポート</p>
     </div>
     <div class="ccard">
-      <div class="ricon" style="border:none;width:78px;height:78px"><img src="icon-nerve.png" style="width:78px;height:78px;object-fit:contain"></div>
+      <img src="icon-nerve.png" alt="">
+      <span class="c-en">Autonomic</span>
       <h4>自律神経の乱れ</h4>
-      <p>眠りが浅い、疲れが抜けない<br>PMS、抑うつ、便秘、偏頭痛</p>
+      <p>眠りが浅い、疲れが抜けない、PMS、偏頭痛など</p>
     </div>
     <div class="ccard">
-      <div class="ricon" style="border:none;width:78px;height:78px"><img src="icon-face.png" style="width:78px;height:78px;object-fit:contain"></div>
+      <img src="icon-face.png" alt="">
+      <span class="c-en">Face Line</span>
       <h4>顔の大きさ・左右差</h4>
-      <p>左右のバランスを整え<br>すっきりとしたフェイスラインへ</p>
+      <p>左右のバランスを整え、すっきりとした印象へ</p>
     </div>
     <div class="ccard">
-      <div class="ricon" style="border:none;width:78px;height:78px"><img src="icon-jaw.png" style="width:78px;height:78px;object-fit:contain"></div>
+      <img src="icon-jaw.png" alt="">
+      <span class="c-en">Clenching</span>
       <h4>夜間の食いしばり</h4>
-      <p>無意識の食いしばりからくる<br>歯・顎・首の負担を優しくケア</p>
+      <p>無意識の食いしばりからくる歯・顎・首の負担に</p>
     </div>
     <div class="ccard">
-      <div class="ricon" style="border:none;width:78px;height:78px"><img src="icon-diet.png" style="width:78px;height:78px;object-fit:contain"></div>
+      <img src="icon-diet.png" alt="">
+      <span class="c-en">Body Care</span>
       <h4>ダイエット＆体質改善</h4>
-      <p>ツラい運動・食事制限無し！<br>無理なく痩せるメソッド</p>
+      <p>ツラい運動・食事制限なしの無理のないメソッド</p>
     </div>
     <div class="ccard">
-      <div class="ricon" style="border:none;width:78px;height:78px"><img src="icon-price.png" style="width:78px;height:78px;object-fit:contain"></div>
-      <h4>料金について</h4>
-      <p>初回限定のお得なメニューもご用意</p>
+      <img src="icon-price.png" alt="">
+      <span class="c-en">Price</span>
+      <h4>料金が気になる方へ</h4>
+      <p>初回限定のお得なお試し価格をご用意しています</p>
     </div>
-  </div>
-</section>
-
-<!-- ============ BEFORE & AFTER ============ -->
-<section class="ba-section">
-  <div class="sec-head fade">
-    <span class="en">CASE STUDIES</span>
-    <h2>お客様の変化</h2>
-    <p class="ba-sub">施術を受けられたお客様の変化を、これから順次ご紹介してまいります。</p>
-  </div>
-
-  <div class="coming-soon fade">
-    <span class="cs-en">COMING SOON</span>
-    <p>ただいま準備中です。<br>お客様の変化のご紹介を、楽しみにお待ちください。</p>
   </div>
 </section>
 
 <!-- ============ MENU ============ -->
 <section class="menu" id="menu">
   <div class="sec-head fade">
-    <span class="en">MENU &amp; PRICE</span>
+    <span class="en-kicker">Menu &amp; Price</span>
     <h2>施術内容・料金</h2>
+    <div class="rule"></div>
   </div>
   <div class="first-trial fade">
     <span class="ft-badge">初回限定</span>
@@ -759,7 +606,7 @@
   </div>
   <div class="menu-list fade">
     <div class="menu-row">
-      <span class="num">No.01</span>
+      <span class="num">Ⅰ</span>
       <div>
         <h4>全身整体（ベーシック）</h4>
         <p>骨格・筋肉のバランスを全身から整える基本コース</p>
@@ -767,7 +614,7 @@
       <span class="price"><span class="yen">¥</span>11,000</span>
     </div>
     <div class="menu-row">
-      <span class="num">No.02</span>
+      <span class="num">Ⅱ</span>
       <div>
         <h4>全身メンテナンス</h4>
         <p>日々の疲れや歪みを定期的にリセットしたい方のためのコース</p>
@@ -775,7 +622,7 @@
       <span class="price"><span class="yen">¥</span>13,200</span>
     </div>
     <div class="menu-row">
-      <span class="num">No.03</span>
+      <span class="num">Ⅲ</span>
       <div>
         <h4>美容・小顔整体</h4>
         <p>お顔の左右差・むくみにアプローチ、すっきりとしたフェイスラインを目指すコース</p>
@@ -783,7 +630,7 @@
       <span class="price"><span class="yen">¥</span>13,200</span>
     </div>
     <div class="menu-row">
-      <span class="num">No.04</span>
+      <span class="num">Ⅳ</span>
       <div>
         <h4>自律神経クイック調整</h4>
         <p>眠りの浅さ・疲れの抜けにくさなど、自律神経の乱れが気になる方向けの短時間集中コース</p>
@@ -791,25 +638,40 @@
       <span class="price"><span class="yen">¥</span>8,800</span>
     </div>
     <div class="menu-row">
-      <span class="num">No.05</span>
+      <span class="num">Ⅴ</span>
       <div>
         <h4>極☆プレミアム</h4>
         <p>当サロン最上位のトータルケアコース。全身を深部からじっくり整えたい方、特別なご褒美の時間に</p>
       </div>
       <span class="price"><span class="yen">¥</span>16,500</span>
     </div>
-    <p style="max-width:980px;margin:32px auto 0;font-size:13px;color:var(--ink-soft);line-height:2">
+    <p class="menu-note">
       ※料金はすべて税込です。<br>
       ※夜間の施術は応相談（夜間料金 ¥1,000）。出張整体はエリアに応じて別途出張費を頂戴します（詳しくはアクセス欄をご覧ください）。
     </p>
   </div>
 </section>
 
-<!-- ============ VOICE ============ -->
-<section class="voice" id="voice">
+<!-- ============ CHANGES ============ -->
+<section class="ba-section" id="changes" style="background:#fff;padding-top:0">
   <div class="sec-head fade">
-    <span class="en">VOICE</span>
+    <span class="en-kicker">Real Changes</span>
+    <h2>お客様の変化</h2>
+    <p class="lead">施術を受けられたお客様の変化を、これから順次ご紹介してまいります。</p>
+    <div class="rule"></div>
+  </div>
+  <div class="coming-soon fade">
+    <span class="cs-en">COMING SOON</span>
+    <p>ただいま準備中です。<br>お客様の変化のご紹介を、楽しみにお待ちください。</p>
+  </div>
+</section>
+
+<!-- ============ VOICE ============ -->
+<section class="voice" id="voice" style="background:var(--warm)">
+  <div class="sec-head fade">
+    <span class="en-kicker">Reviews</span>
     <h2>お客様の声</h2>
+    <div class="rule"></div>
   </div>
   <div class="coming-soon fade">
     <span class="cs-en">COMING SOON</span>
@@ -821,11 +683,13 @@
 <section class="therapist" id="therapist">
   <div class="therapist-inner fade">
     <div class="therapist-photo">
-      <img src="therapist-1.jpg" class="tslide active" alt="施術者" style="object-position:68% center">
-      <img src="therapist-2.jpg" class="tslide" alt="施術者と看板犬 梅" style="object-position:58% center">
+      <div class="ph-frame">
+        <img src="therapist-1.jpg" class="tslide active" alt="施術者" style="object-position:68% center">
+        <img src="therapist-2.jpg" class="tslide" alt="施術者と看板犬 梅" style="object-position:58% center">
+      </div>
     </div>
     <div class="therapist-text">
-      <span class="label-en">OWNER &amp; THERAPIST</span>
+      <span class="label-en">Owner &amp; Therapist</span>
       <h2 class="name-ja">髙橋 美佳</h2>
       <span class="name-en">Mika Takahashi ／ たみか</span>
       <div class="bio">
@@ -848,39 +712,69 @@
           <span class="spec-val">ご縁をいただいたお一人おひとりに、心を込めて。頑張りすぎているあなたが、ほっと力を抜ける場所でありたいと思っています。</span>
         </div>
       </div>
-      <a href="#" class="therapist-btn">詳しいプロフィール</a>
     </div>
   </div>
 </section>
 
-<!-- ============ INFO + SNS ============ -->
-<section class="info-sns">
-  <div class="info-sns-inner fade">
-    <div class="info-block">
-      <div class="label">INFORMATION</div>
-      <div class="coming-soon mini fade">
-        <span class="cs-en">COMING SOON</span>
-        <p>お知らせは準備中です。</p>
-      </div>
+<!-- ============ FLOW ============ -->
+<section class="flow" id="flow">
+  <div class="sec-head fade">
+    <span class="en-kicker">Flow</span>
+    <h2>施術の流れ</h2>
+    <p class="lead">初めての方も、安心してお越しいただけるように。<br>丁寧な4ステップでお迎えします。</p>
+    <div class="rule"></div>
+  </div>
+  <div class="flow-grid fade">
+    <div class="fstep">
+      <span class="f-roman">i</span>
+      <h4>カウンセリング</h4>
+      <p>お悩み・ご希望を丁寧にお伺いし、お身体の状態を一緒に確認します。</p>
     </div>
-    <div class="sns-block">
-      <div class="label">OFFICIAL SNS</div>
-      <div class="coming-soon mini fade">
-        <span class="cs-en">COMING SOON</span>
-        <p>SNSは準備中です。<br>開設しましたら、こちらでご案内します。</p>
-      </div>
+    <div class="fstep">
+      <span class="f-roman">ii</span>
+      <h4>お身体のチェック</h4>
+      <p>姿勢や歪み、日々の生活習慣まで含めて、現状を丁寧にリサーチします。</p>
+    </div>
+    <div class="fstep">
+      <span class="f-roman">iii</span>
+      <h4>施術</h4>
+      <p>お一人おひとりに合わせたプランで、やさしく丁寧に施術を行います。</p>
+    </div>
+    <div class="fstep">
+      <span class="f-roman">iv</span>
+      <h4>アドバイス</h4>
+      <p>ご自宅で続けられるセルフケアなど、日常へのアドバイスをお伝えします。</p>
     </div>
   </div>
-  <div class="sns-vert vert">ご予約、無料カウンセリング、整体教室など、お気軽にご相談ください。</div>
+</section>
+
+<!-- ============ RESERVATION ============ -->
+<section class="reserve" id="reserve">
+  <div class="fade">
+    <span class="en-kicker">Reservation</span>
+    <h2>「整える」を、今日から。</h2>
+    <p class="r-lead">ご予約・ご相談は公式LINEが便利です。<br>友だち追加のうえ、ご希望のメニューと日時をメッセージでお送りください。</p>
+    <div class="reserve-actions">
+      <div class="reserve-line">
+        <a href="https://lin.ee/ZWKkKza" target="_blank" rel="noopener"><img src="https://scdn.line-apps.com/n/line_add_friends/btn/ja.png" alt="友だち追加" height="44"></a>
+      </div>
+      <div class="reserve-qr">
+        <img src="line-qr.png" alt="LINE友だち追加QRコード">
+        <span>PCでご覧の方はこちら</span>
+      </div>
+    </div>
+    <p class="reserve-tel">お電話でも受け付けています<a href="tel:070-9111-8430">070-9111-8430</a>（完全予約制）</p>
+    <p class="reserve-hours">受付時間　平日 9:00〜17:00　土日祝 9:00〜16:30（不定休）<br>夜間の施術は応相談（夜間料金 ¥1,000）</p>
+  </div>
 </section>
 
 <!-- ============ ACCESS ============ -->
-<section class="access" id="access" style="padding:0">
+<section class="access" id="access">
   <div class="access-map">
     <iframe src="https://www.google.com/maps/embed?origin=mfe&amp;pb=!1m3!2m1!1z5oSb55-l55yM5LiA5a6u5biC5qOu5pysMuS4geebrg!6i15" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="愛知県一宮市森本2丁目の地図"></iframe>
   </div>
   <div class="access-info">
-    <div class="vert-label vert">アクセス</div>
+    <span class="en-kicker">Access</span>
     <h3>整体サロン　整 totonou（ととのう）</h3>
     <dl>
       <dt>営業時間</dt>
@@ -903,61 +797,51 @@
   </div>
 </section>
 
-<!-- ============ CTA ============ -->
-<section class="cta-band" style="padding:80px 6%">
-  <div class="cta-inner">
-    <div class="cta-left">
-      <h3>ご予約・ご相談は公式LINEから</h3>
-      <p>ご予約・ご相談は公式LINEが便利です。<br>友だち追加のうえ、ご希望のメニューと日時をメッセージでお送りください。</p>
-    </div>
-    <div class="cta-right">
-      <div class="cta-line-row">
-        <a href="https://lin.ee/ZWKkKza" target="_blank" rel="noopener"><img src="https://scdn.line-apps.com/n/line_add_friends/btn/ja.png" alt="友だち追加" height="36" border="0"></a>
-        <div class="cta-qr">
-          <img src="line-qr.png" alt="LINE友だち追加QRコード">
-          <span>PCでご覧の方はこちら</span>
-        </div>
-      </div>
-      <div class="cta-hours">受付時間　平日 9:00〜17:00　土日祝 9:00〜16:30（不定休）<br>夜間の施術は応相談（夜間料金 ¥1,000）</div>
-      <div class="cta-tel-sub">お電話でも受け付けています：<a href="tel:070-9111-8430">070-9111-8430</a>（完全予約制）</div>
-    </div>
-  </div>
-</section>
-
 <!-- ============ FOOTER ============ -->
 <footer>
   <div class="foot-inner">
     <div class="foot-brand">
-      <img src="logo-new.png" alt="整 totonou" class="foot-logo">
-      <div class="foot-brand-text">
-        <span class="ja">整体サロン</span>
-        <div class="bottom-row">
-          <span class="kanji">整</span>
-          <span class="en">totonou</span>
+      <div class="foot-brand-row">
+        <img src="logo-new.png" alt="整 totonou">
+        <div class="foot-brand-text">
+          <span class="ja">整体サロン</span>
+          <div class="bottom-row">
+            <span class="kanji">整</span>
+            <span class="en">totonou</span>
+          </div>
         </div>
       </div>
+      <p class="desc">愛知県一宮市の完全予約制プライベート整体サロン。<br>「整える」を合言葉に、あなたの毎日に寄り添います。</p>
     </div>
-    <div class="foot-cols">
+    <div class="foot-col">
+      <div class="label">MENU</div>
       <ul>
-        <li><a href="#concept">はじめての方へ</a></li>
-        <li><a href="#about">当院のご紹介</a></li>
-        <li><a href="#about">スタッフご挨拶</a></li>
-        <li><a href="#about">整体教室 〜整う時間〜</a></li>
-        <li><a href="#concept">無料カウンセリング</a></li>
-      </ul>
-      <ul>
-        <li><a href="#menu">施術内容・料金</a></li>
-        <li><a href="#voice">よくあるご質問</a></li>
-        <li><a href="#access">アクセス・ご予約</a></li>
-        <li><a href="#about">整体について</a></li>
-        <li><a href="#concept">妊娠中の方へ</a></li>
+        <li><a href="#menu">全身整体（ベーシック）</a></li>
+        <li><a href="#menu">全身メンテナンス</a></li>
+        <li><a href="#menu">美容・小顔整体</a></li>
+        <li><a href="#menu">自律神経クイック調整</a></li>
+        <li><a href="#menu">極☆プレミアム</a></li>
       </ul>
     </div>
-    <div class="foot-sns">
-      <span class="label">RESERVE</span>
-      <a href="https://lin.ee/ZWKkKza" target="_blank" rel="noopener"><img src="https://scdn.line-apps.com/n/line_add_friends/btn/ja.png" alt="友だち追加" height="36" border="0" style="width:auto"></a>
-      <span class="label" style="margin-top:16px">OFFICIAL SNS</span>
-      <span style="font-size:12px;color:var(--ink-soft);letter-spacing:.1em;font-family:'Noto Sans JP',sans-serif">Coming soon — 準備中です</span>
+    <div class="foot-col">
+      <div class="label">ABOUT</div>
+      <ul>
+        <li><a href="#philosophy">整の真髄</a></li>
+        <li><a href="#reasons">大切にしていること</a></li>
+        <li><a href="#therapist">施術者のご紹介</a></li>
+        <li><a href="#flow">施術の流れ</a></li>
+        <li><a href="#access">アクセス</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <div class="label">CONTACT</div>
+      <ul>
+        <li><span class="txt">070-9111-8430</span></li>
+        <li><span class="txt">平日 9:00〜17:00</span></li>
+        <li><span class="txt">土日祝 9:00〜16:30</span></li>
+        <li><span class="txt">愛知県一宮市森本2丁目</span></li>
+        <li><a href="https://lin.ee/ZWKkKza" target="_blank" rel="noopener">LINEで予約する</a></li>
+      </ul>
     </div>
   </div>
   <div class="copy">
@@ -970,8 +854,9 @@
   // header scrolled state
   const header=document.getElementById('header');
   window.addEventListener('scroll',()=>{
-    header.classList.toggle('scrolled',window.scrollY>20);
+    header.classList.toggle('scrolled',window.scrollY>40);
   });
+  header.classList.toggle('scrolled',window.scrollY>40);
 
   // hamburger menu
   const hambBtn=document.getElementById('hambBtn');
@@ -1006,22 +891,10 @@
     },4000);
   }
 
-  // before & after filter
-  const fbtns=document.querySelectorAll('.ba-fbtn');
-  const bacards=document.querySelectorAll('.ba-card');
-  fbtns.forEach(b=>b.addEventListener('click',()=>{
-    fbtns.forEach(x=>x.classList.remove('active'));
-    b.classList.add('active');
-    const f=b.dataset.filter;
-    bacards.forEach(c=>{
-      c.style.display=(f==='all'||c.dataset.cat===f)?'':'none';
-    });
-  }));
-
   // fade in on scroll
   const io=new IntersectionObserver(es=>{
     es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
-  },{threshold:.15});
+  },{threshold:.12});
   document.querySelectorAll('.fade').forEach(el=>io.observe(el));
 </script>
 
