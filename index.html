@@ -248,8 +248,9 @@
   /* ============ FLOW ============ */
   .flow{background:#fff}
   .flow-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;max-width:1240px;margin:0 auto}
-  .fstep{border:1px solid var(--line);padding:44px 28px 38px;position:relative;background:#fff;transition:.3s}
+  .fstep{border:1px solid var(--line);padding:0 0 34px;position:relative;background:#fff;transition:.3s;overflow:hidden}
   .fstep:hover{border-color:var(--teal)}
+  .fstep .f-ph{aspect-ratio:16/11;background-size:cover;background-position:center;margin-bottom:26px}
   .fstep::after{
     content:"→";position:absolute;right:-22px;top:50%;transform:translateY(-50%);
     color:var(--beige-deep);font-size:18px;z-index:2;
